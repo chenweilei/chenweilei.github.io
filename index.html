@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>My Cv Bootstarp Website Template | Home :: w3layouts</title>
+<link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="./css/style.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/add.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript">
+	addEventListener("load", function() { 
+		setTimeout(hideURLbar, 0); }, false); 
+		function hideURLbar(){ window.scrollTo(0,1);
+	}
+</script>
+<!--- Jquery-->
+<!-- Goog Fonts -->
+<!--
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+-->
+</head>
+<body>
+	<!-- newadd star-->
+	<!-- 
+	<div class="fixedBg"></div>
+	 -->
+	<a href="javascript:;" class="sampleShow" id="samOpen">作品展示</a>
+	<div class="posBg" id="samBox">
+		<div class="posWarp" id="parent">
+			<span class="samClose" id="samClose"></span>
+			<div class="samList" id="samList">
+				<div id="samList_Box"></div>
+				<ul >
+					<li>
+						<span class="cosBaidu">百度搜索</span>
+					</li>
+					<li>
+						<span class="cosBaidu">照片墙</span>
+					</li>
+					<li>
+						<span class="cosBaidu">拉钩</span>
+					</li>
+					<li>
+						<span class="cosBaidu">分块运动</span>
+					</li>
+					<li>
+						<span class="cosBaidu">页码</span>
+					</li>
+					<li>
+						<span class="cosBaidu">日历，时间</span>
+					</li>
+					<li>
+						<span class="cosBaidu">苹果菜单</span>
+					</li>
+					<li>
+						<span class="cosBaidu">相册</span>
+					</li>
+				</ul>
+			</div>
+			<div class="samContent">
+				<ul class="samUl" id="samUl">
+				<!-- //百度搜索 -->
+					<li class="baidu">
+						<div class="baiduLogo"></div>
+						<div class="clearfix bdBox">
+							<input type="text" id="bdTxt" class="bdTxt pull-left" />
+							<span class="bdSearch pull-left" id="bdSech">搜一下</span>
+							<ul class="bdSeachList pull-left" id="bdSeachList"></ul>
+						</div>
+					</li>
+				<!-- //照片墙 -->
+					<li class="photoWall has-feedback">
+						<ul class="clearfix" id="photoWall">
+							<li><img src="./images/fashi.jpg" /></li>
+							<li><img src="./images/daozei.jpg" /></li>
+							<li><img src="./images/lieren.jpg" /></li>
+							<li><img src="./images/shengqishi.jpg" /></li>
+							<li><img src="./images/zhanshi.jpg" /></li>
+							<li><img src="./images/deluyi.jpg" /></li>
+							<li><img src="./images/shaman.jpg" /></li>
+							<li><img src="./images/mushi.jpg" /></li>
+							<li><img src="./images/shushi.jpg" /></li>
+						</ul>
+					</li>
+				<!-- 拉钩 -->
+					<li class="lG has-feedback">
+						<span id="change"></span>
+						<ul class="clearfix" id="lG">
+							<li><img src="./images/ls001.jpg" alt=""><span></span></li>
+							<li><img src="./images/ls002.jpg" alt=""><span></span></li>
+							<li><img src="./images/ls003.jpg" alt=""><span></span></li>
+							<li><img src="./images/ls004.jpg" alt=""><span></span></li>
+							<li><img src="./images/ls005.jpg" alt=""><span></span></li>
+							<li><img src="./images/ls006.jpg" alt=""><span></span></li>
+							<li><img src="./images/ls007.jpg" alt=""><span></span></li>
+							<li><img src="./images/ls008.jpg" alt=""><span></span></li>
+							<li><img src="./images/ls009.jpg" alt=""><span></span></li>
+						</ul>
+					</li>
+				<!-- 分块运动 -->
+					<li class="caseMove has-feedback">
+						<span class="caseMove_go" id="go">GO</span>
+						<div id="case"><img src="./images/lsb1.jpg" alt=""></div>
+					</li>
+				<!-- 页码 -->
+					<li class="pageNumber has-feedback">
+						<div>
+							<span class="caseMove_go" id="pageNumberBtn">GO</span>
+						</div>
+						<ul class="clearfix" id="pageNumberBox">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+				<!-- 日历 -->
+					<li class="calendarBox has-feedback">
+						<input type="calendarBox_text" id="calendarBox_text" />
+						<div class="calendarBox_calendar" id="calendar">
+							<a href="javascript:;" class="calendarBox_prev">←</a>
+							<a href="javascrpt:;" class="calendarBox_next">→</a>
+							<span>2015年11月</span>
+							<ol>
+								<li>一</li>
+								<li>二</li>
+								<li>三</li>
+								<li>四</li>
+								<li>五</li>
+								<li class="calendarBox_week">六</li>
+								<li class="calendarBox_week">日</li>
+							</ol>
+							<ul></ul>
+						</div>
+						<div class="calendarBox_clock" id="calendarBox_clock">
+							<ul class="clearfix">
+								<li><span></span></li>
+								<li><span></span></li>
+								<li><p>:</p></li>
+								<li><span></span></li>
+								<li><span></span></li>
+								<li><p>:</p></li>
+								<li><span></span></li>
+								<li><span></span></li>
+							</ul>
+						</div>
+					</li>
+				<!-- 苹果菜单 -->
+					<li class="appleList has-feedback" >
+						<div class="ring" id="ring">
+						</div>
+						<div id="appleCase" class="apple">
+							<img src="./images/apple1.png" alt="" />
+							<img src="./images/apple2.png" alt="" />
+							<img src="./images/apple3.png" alt="" />
+							<img src="./images/apple4.png" alt="" />
+							<img src="./images/apple5.png" alt="" />
+						</div>
+					</li>
+				<!-- 相册 -->
+					<li class="album has-feedback">
+						<div  id="album">
+							<ol>
+								<li><img src="./images/lsjpg.jpg"></li>
+								<li><img src="./images/lsjpg1.jpg"></li>
+								<li><img src="./images/lsjpg2.jpg"></li>
+								<li><img src="./images/lsjpg3.jpg"></li>
+								<li><img src="./images/lsjpg4.jpg"></li>
+								<li><img src="./images/lsjpg5.jpg"></li>
+								<li><img src="./images/lsjpg6.jpg"></li>
+								<li><img src="./images/lsjpg7.jpg"></li>
+							</ol>
+						</div> 
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<a href="javascript:;" class="goBack" id="goBack">
+		<img src="./images/aarows1.png"  alt=" "/>
+	</a>
+	<!-- newadd end-->
+	<!-- Header Starts Here -->
+	<div class="header">
+		<div class="container">
+			<div class="header-profile">
+				<img src="./images/head.png" alt=""/>
+			</div>
+		</div>
+	</div>
+	<div class="header-top">
+		<h2>陈蔚磊</h2>
+		<small>前端开发工程师</small>
+	</div>
+	<!-- Header Ends Here -->
+	<!-- About Me Starts Here -->
+	<div class="about">
+		<div class="container">
+			<div class="about-top">
+				<h3 class="top-title">关于我</h3>
+				<span class="line"></span>
+				<p class="about-p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
+				<p>when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum</p>
+				<div class="row about-row">
+					<div class="col-md-4 about-row-column">
+						<ul class="about-details">
+							<li><p>Birthday: <span>1991/10/11</span></p></li>
+							<li><p>Phone: <span>132 1176 0635</span></p></li>
+							<li><p>Email:  <span><a href="335227035@qq.com">335227035@qq.com</a></span></p></li>
+							<li><p>Website: <span><a href="javascript:;">www.chenweilei.me</a></span></p></li>
+							<li><p>Address: <span>暂住昌平区平西王府</span></p></li>
+						</ul>
+					</div>
+					<div class="col-md-8 about-row-column">
+						<h3>兴趣爱好</h3>
+						<ul class="hoby">
+							<li><i class="tv"></i></li>
+							<li><i class="car"></i></li>
+							<li><i class="music"></i></li>
+							<li><i class="shopping"></i></li>
+							<li><i class="reading"></i></li>
+							<li><i class="travel"></i></li>
+							<li><i class="tea"></i></li>
+						</ul>
+						<a href="" class="download"><span></span>Download Resume</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About Me Ends Here -->
+	<!--- Experience Starts Here -->
+	<div class="experience">
+		<div class="container">
+			<div class="exp-top">
+				<h3 class="top-title">我的经历</h3>
+				<span class="line"></span>
+			</div>
+			<div class="exp-devide">
+				<h4>经历</h4>
+				<span class="devide-line">
+				</span>
+				<label class="bag"></label>
+				<div class="exp-devide-grid-right">
+					<h5>SENIOR UI/UX DESIGNER</h5>
+					<small>Google - 2013 . Current</small>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				</div>
+				<div class="exp-devide-grid-left">
+					<h5>JUNIOR UI DESIGNER</h5>
+					<small>Microsoft - 2010 . 2012</small>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				</div>
+				<div class="exp-devide-grid-rightb">
+					<h5>UI/UX DESIGNER</h5>
+					<small>IBM - 2006 . 2010</small>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				</div>
+			</div>
+			<div class="exp-devide education">
+				<h4>教育</h4>
+				<span class="devide-line">
+				</span>
+				<label class="book"></label>
+				<div class="exp-devide-grid-right">
+					<h5>MASTERS DEGREE</h5>
+					<small>Modern Sciences & Arts University - 2014 . 2012</small>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				</div>
+				<div class="exp-devide-grid-left">
+					<h5>BACHELORS DEGREE</h5>
+					<small>Modern Sciences & Arts University - 2012 . 2010</small>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				</div>
+				<div class="exp-devide-grid-rightb">
+					<h5>GRADUATION</h5>
+					<small>Modern Sciences & Arts University - Faculty of Computer Science - 2006 . 2010</small>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Experience Ends Here -->
+	<!-- Skills Starts Here -->
+	<div class="skills">
+		<div class="container">
+			<div class="skills-top">
+				<h3 class="top-title">职业技能</h3>
+				<span class="line"></span>
+				<div class="row skill-grids text-center">
+					<div class="col-md-3 skill-column">	
+						<div class="skill-grid">
+							<div class="circle" id="circles-1"></div>									
+							 <h3>PHOTOSHOP</h3>	
+							 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						 </div>								  
+					</div>
+					<div class="col-md-3 skill-column">	
+						<div class="skill-grid">
+							<div class="circle" id="circles-2"></div>									
+							 <h3>JQUERY</h3>	
+							 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						 </div>								  
+					</div>
+					<div class="col-md-3 skill-column">	
+						<div class="skill-grid">
+							<div class="circle" id="circles-3"></div>									
+							 <h3>HTML/CSS</h3>	
+							 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						 </div>								  
+					</div>
+					<div class="col-md-3 skill-column">	
+						<div class="skill-grid">
+							<div class="circle" id="circles-4"></div>									
+							 <h3>JAVASCRIPT</h3>
+							 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>	
+						</div>								  
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+	            </div>
+		</div>
+	</div>
+			<!--- Skill Script -->
+				<script type="text/javascript" src="./js/circles.js"></script>
+		            <script>
+					var colors = [
+							['#fff', '#000'], ['#fff', '#000'], ['#fff', '#000'], ['#fff', '#000']
+						];
+					for (var i = 1; i <= 4; i++) {
+						var child = document.getElementById('circles-' + i),
+							percentage = 50 + (i * 10);
+							
+						Circles.create({
+							id:         child.id,
+							percentage: percentage,
+							radius:     80,
+							width:      15,
+							number:   	percentage / 10,
+							text:       '%',
+							colors:     colors[i - 1]
+						});
+					}
+			      </script>
+			<!-- Skill Script -->
+	<!--- Skills Ends Here -->
+	<!-- Social Media Connections -->
+	<!-- 
+	<div class="florilegium">
+		<div class="circular" id="circular">
+			<p class="circular-center">作品展示</p>
+			<span></span>
+		</div>
+	</div>
+	 -->
+	<div class="social-media">
+		<div class="container">
+			<div class="social-media-top">
+				<h3 class="top-title">友情链接</h3>
+				<span class="line"></span>
+				<ul class="social">
+					<li><i class="fb"></i></li>
+					<li><i class="tw"></i></li>
+					<li><i class="li"></i></li>
+					<li><i class="yt"></i></li>
+					<li><i class="ca"></i></li>
+					<li><i class="ph"></i></li>
+					<li><i class="gp"></i></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Social Media Connections -->
+	<!--- Awards Starts Here -->
+	<div class="awards">
+		<div class="container">
+			<div class="awards-top">
+				<h3 class="top-title">记录/目标</h3>
+				<span class="line"></span>
+				<div class="row award-row">
+					<div class="col-md-3 award-column">
+						<i class="award"></i>
+						<h5>50</h5>
+						<small>获奖</small>
+					</div>
+					<div class="col-md-3 award-column">
+						<i class="project"></i>
+						<h5>570</h5>
+						<small>项目</small>
+					</div>
+					<div class="col-md-3 award-column">
+						<i class="client"></i>
+						<h5>215</h5>
+						<small>客户</small>
+					</div>
+					<div class="col-md-3 award-column">
+						<i class="cups"></i>
+						<h5>2145</h5>
+						<small>咖啡</small>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--- Awards Ends Here -->
+	<!--- Twitter Feed Starts Here -->
+	<div class="twitter">
+		<div class="container">
+			<div class="twitter-top">
+				<i class="twit"></i>
+				<span class="line"></span>
+				<!-- Slideshow 4 -->
+			      <div  id="top" class="callbacks_container">
+				      <ul class="rslides" id="slider4">
+				        <li>
+				          <div class="slider-top">
+				          	 	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem<br>Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="slider-top">
+				          	<p>simply dummy text of the Lorem Ipsum is printing and typesetting industry. Lorem<br>Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="slider-top">
+				          	<p>printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem<br>Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="slider-top">
+				          	<p>and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem<br>Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				          </div>
+				        </li>
+				        <li>
+				          <div class="slider-top">
+				          	<p>typesetting Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem<br>Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				          </div>
+				        </li>
+				      </ul>
+			      </div>
+			      <div class="clearfix"> </div>
+			</div>
+			<!--- Slider Script -->
+					<script src="./js/responsiveslides.min.js"></script>
+					 <script>
+					    // You can also use "$(window).load(function() {"
+					    $(function () {
+					      // Slideshow 4
+					      $("#slider4").responsiveSlides({
+					        auto: true,
+					        pager: true,
+					        nav: true,
+					        speed: 500,
+					        namespace: "callbacks",
+					        before: function () {
+					          $('.events').append("<li>before event fired.</li>");
+					        },
+					        after: function () {
+					          $('.events').append("<li>after event fired.</li>");
+					        }
+					      });
+					
+					    });
+					  </script>
+			<!--//End-slider-script-->
+
+		</div>
+	</div>
+	<!-- Twitter Feed Ends Here -->
+	<!-- Contact Starts Here -->
+	<div class="contact">
+		<div class="container">
+			<div class="contact-top">
+				<h3 class="top-title">联系我</h3>
+				<span class="line"></span>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem<br>Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				<div class="row contact-row">
+					<div class="col-md-4 contact-column">
+						<i class="loc"></i>
+						<p>昌平区平西王府</p>
+					</div>
+					<div class="col-md-4 contact-column">
+						<i class="mail"></i>
+						<p><a href="mailto:335227035@qq.com">335227035@qq.com</a></p>
+					</div>
+					<div class="col-md-4 contact-column">
+						<i class="phone"></i>
+						<p>13211760635</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="contact-form">
+					<div class="text">
+						<input type="text" value="Your Name.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Name..';}"/>
+					</div>
+					<div class="text">
+						<input type="text" value="Your Email.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email..';}"/>
+					</div>
+					<div class="text">
+						<textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Your Message..</textarea>
+					</div>
+					<div class="text">
+						<input type="submit"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--- Contact Ends Here -->
+	<!--- Footer Starts Here -->
+	<div class="footer">
+		<div class="container">
+			<p class="copyright">2014 Template By <a href="javascript:;"></a></p>
+		</div>
+	</div>
+	<!--- Footer Ends Here -->
+</body>
+</html>
