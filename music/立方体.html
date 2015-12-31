@@ -1,0 +1,66 @@
+<!-- code by cwl -->    	
+<!doctype html> 
+<html> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="description" content="网页描述" />
+    <meta name="Keywords" content="关键字" />
+<style>
+*{
+	margin:0;;
+	padding:0;
+}
+div{
+	color:#fff;
+	font-size: 50px;
+	line-height: 200px;
+	text-align: center;;
+	width:200px;
+	height:200px;
+}
+.cubic{
+	margin:200px auto;
+	transform-style: preserve-3d;
+	transform:perspective(1200px) rotateX(30deg) rotateY(30deg);
+	position:relative;
+}
+.cubic div{
+	position:absolute;
+}
+.face1{
+	background: #f00;
+	transform: translateZ(100px);
+}
+.face6{
+	background: #f0f;
+	transform: translateZ(-100px);
+}
+.face2{
+	background: #00f;
+	transform: rotateY(90deg)  translateZ(-100px); 
+}
+.face4{
+	background: #399;
+	transform: rotateY(90deg)  translateZ(100px); 
+}
+.face3{
+	background:#993;
+	transform:rotateX(90deg) translateZ(100px) ;
+}
+.face5{
+	background:#939;
+	transform:rotateX(90deg) translateZ(-100px) ;
+}
+</style>
+</head>
+<body>
+	<div class="cubic">
+		<div class="face1">1</div>
+		<div class="face2">2</div>
+		<div class="face3">3</div>
+		<div class="face4">4</div>
+		<div class="face5">5</div>
+		<div class="face6">6</div>
+	</div>
+</body>
+</html>
