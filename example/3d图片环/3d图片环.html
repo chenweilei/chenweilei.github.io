@@ -1,0 +1,101 @@
+<!-- code by cwl -->    	
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<style>
+*{ margin:0; padding:0; list-style: none; }
+html,body{width:100%; height:100%; overflow: hidden;}
+body{background: #000;}
+ul{width:133px; height:200px; background:; position: absolute; top:50%; left:50%; margin-top: -170px; margin-left:-66px; transform-style: preserve-3d; transform: rotateX(-10deg); perspective:800px; transition: 1s all ease;}
+ul li{width:100%; height:100%; border-radius: 15px;  box-shadow: 0 0 20px #fff; position: absolute; top:0; left:0; opacity: 1;}
+</style>
+<script>
+window.onload=function(){
+	var oUl=document.getElementById('ul');
+	var n=11;
+	for(var i=0; i<n; i++){
+		var oLi=document.createElement('li');
+		oLi.style.background='url('+i+'.jpg)';
+		oUl.appendChild(oLi);
+	};
+	var aLi=oUl.children;
+	for(var i=0; i<n; i++){
+		(function(i){
+			setTimeout(function(){
+				aLi[i].style.transform='rotateY('+360/n*i+'deg) translateZ(380px)';
+				aLi[i].style.transition='.8s all ease '+(n-i-1)*.3+'s';
+			},0);
+		})(i);
+	}
+	var y=0;
+	var x=-10;
+	//键盘控制
+	aLi[0].addEventListener('transitionend',function(){
+		change();
+		open();
+	},false);
+	document.onkeydown=function(ev){
+		if(ev.keyCode==37){
+			y-=360/n;
+			change();
+		}
+		if(ev.keyCode==39){
+			y+=360/n;
+			change();
+		}
+		if(ev.keyCode==38){
+			x+=5;
+			oUl.style.transform='rotateX('+x+'deg)';
+		}
+		if(ev.keyCode==40){
+			x-=5;
+			oUl.style.transform='rotateX('+x+'deg)';
+		}
+	}
+	function open(){
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].style.transition='.8s all ease ';
+		}
+	}
+	function clear(){
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].style.transition='no';
+		}
+	}
+	function change(){
+		for(var i=0; i<n; i++){
+			aLi[i].style.transform='rotateY('+(360/n*i+y)+'deg) translateZ(380px)';
+			var d=Math.abs((360/n*i+y)%360);
+
+			d>180 && (d=360-d);
+
+			d=(180-d)/180;
+
+			d<0.2 && (d=0.2);
+
+			aLi[i].style.opacity=d;
+		}
+	}
+	//拖拽
+	document.onmousedown=function(ev){
+		var oldY=ev.clientX-y;
+		var moveY=0;
+		document.onmousemove=function(ev){
+			y=ev.clientX-oldY;
+			change();
+		}
+		document.onmouseup=function(ev){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+	<ul id="ul">
+	</ul>
+</body>
+</html>
