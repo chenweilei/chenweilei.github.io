@@ -1,0 +1,107 @@
+<!-- code by cwl -->    	
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+<style>
+*{padding:0; margin:0;}
+body,html{overflow: hidden; background: #000;}
+
+.parent{width:400px; height:542px;  margin:0 auto;position: relative; 
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform:perspective(800px)  ; 
+}
+.parent>div,.perBox div{position: absolute; }
+
+.perBox{width:300px; height:360px;top:165px; left:50px; z-index:2;
+	-webkit-transform-style:preserve-3d; 
+	-webkit-perspective:800px; 
+	-webkit-transform:rotateY(0deg) translateZ(20px) translateY(30px) scale(0.8);   
+}
+.per{width:100%; height:100%; background: url(./images/gameper.png) no-repeat; z-index: 3}
+.box{width:253px; height:262px; z-index: 4; 
+	top:140px; left:50%; margin-left:-126px; 
+	background: url(./images/box.png) no-repeat;
+	-webkit-transform: translateZ(40px) scale(0.5); 
+}
+
+.bg{width:400px; height:542px; background: url(./images/game.jpg) no-repeat; z-index: 1; 
+	-webkit-transform: perspective(800px) translateZ(-60px) scale(1.2);
+}
+
+.txt{width:100px; height:30px; top:420px; left:50%; margin-left:-50px; 
+	-webkit-transform: perspective(800px) translateZ(180px) scale(0.5); 
+}
+
+.txt a{color:red; font-size: 24px; text-decoration: none;}
+
+.sTxt{ color: #fff; font-size: 60px; display: block; position:absolute; top:40%; left:35%; display:none; 
+	-webkit-transform: perspective(800px) translateZ(-20px) ;
+}
+
+.box1{width:400px; height:80px; top:-120px; left:-50px; background: rgba(255,0,0,0.6);  
+	position:relative; z-index:2; display: none;
+	-webkit-transform: translateZ(-20px) rotateZ(-35deg) scale(1.5);
+}
+
+</style>
+<script>
+window.onload=function(){
+	var oP=document.querySelector('.parent');
+	var oPer=document.querySelector('.per');
+	var oPerBox=document.querySelector('.perBox');
+	var oTxt=document.querySelector('.txt');
+	var oBox=document.querySelector('.box');
+	if(window.DeviceMotionEvent){
+		window.addEventListener('devicemotion',function(ev){
+                var acc=ev.accelerationIncludingGravity;
+                var x=acc.x;
+                var y=acc.y;
+
+                oP.style.webkitTransformStyle='preserve-3d';
+                oP.style.webkitTransform='perspective(800px) rotateY('+x*2+'deg) rotateX('+y*0.8+'deg)';
+           });
+	}
+	oTxt.onclick=function(){
+		oTxt.style.display='none';
+		var oBox1=document.querySelector('.box1');
+		var oStxt=document.querySelector('.sTxt');
+		oPerBox.style.webkitTransition='.4s all ease';
+		oBox1.style.webkitTransition='.4s all ease';
+             oPerBox.style.webkitTransform='translateZ(20px) translateY(70px) scale(0.6)';
+		function fn1(){
+			oBox1.style.display='block';
+			oStxt.style.display='block';
+			setTimeout(function(){
+				oPerBox.style.webkitTransform='translateZ(20px) rotateY(-180deg) translateY(70px) scale(0.6)';
+				oBox.style.zIndex='2';
+				oBox.style.webkitTransform='translateZ(-40px) scale(0.5)'; 
+
+				oPerBox.addEventListener('webkitTransitionEnd',fn2,false);
+			},0);
+			oPerBox.removeEventListener('webkitTransitionEnd',fn1,false);
+		}
+		oPerBox.addEventListener('webkitTransitionEnd',fn1,false);		
+		function fn2(){
+			oStxt.innerHTML='宝！';
+			oBox1.style.webkitTransform=' rotateZ(35deg) translateZ(-20px) scale(1.5)';
+			oPerBox.removeEventListener('webkitTransitionEnd',fn2,false);
+		}
+	};
+}
+</script>
+</head>
+<body>
+	<div class="parent">
+		<div class="bg"></div>
+		<div class="perBox">
+			<div class="per"></div>
+			<div class="box"></div>
+			<div class="box1"></div>
+		</div>
+		<span class="sTxt">宝箱</span>
+		<div class="txt"><a href="ajvascript:;">打开宝箱</a></div>
+	</div>
+</body>
+</html>
