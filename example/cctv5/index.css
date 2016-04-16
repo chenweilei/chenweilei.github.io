@@ -78,13 +78,10 @@ body {
 	line-height: 2.5rem;
 }
 .titleW span{
-	color:rgba(0,0,0,0); 
-	text-shadow: 0 0 100px #fff; 
 	opacity: 0; 
 }
 .titleW span.on{ 
 	opacity: 1; 
-	text-shadow: 0 0 0 #fff;
 }
 .page1Top{
 	width:1.625rem;
@@ -170,13 +167,10 @@ body {
 	vertical-align: bottom;
 }
 .txtWall .page2P2 span{
-	color:rgba(0,0,0,0); 
-	text-shadow: 0 0 100px #fff; 
 	opacity: 0; 
 }
 .txtWall .page2P2 span.on{ 
 	opacity: 1; 
-	text-shadow: 0 0 0 #fff;
 }
 .txtBg{
 	width:0rem;
@@ -250,13 +244,10 @@ body {
 	line-height: 1.25rem;
 }
 .p3TitEng span{
-	color:rgba(0,0,0,0); 
-	text-shadow: 0 0 100px #fff; 
 	opacity: 0; 
 }
 .p3TitEng span.on{ 
 	opacity: 1; 
-	text-shadow: 0 0 0 #fff;
 }
 .p3Verse{
 	position: absolute;
@@ -330,13 +321,10 @@ body {
 	line-height: 1.25rem;
 }
 .p4TitEng span{
-	color:rgba(0,0,0,0); 
-	text-shadow: 0 0 100px #fff; 
 	opacity: 0; 
 }
 .p4TitEng span.on{ 
 	opacity: 1; 
-	text-shadow: 0 0 0 #fff;
 }
 .p4Verse{
 	position: absolute;
@@ -445,14 +433,10 @@ body {
 	margin-left:-0.4rem;
 }
 .p5txt span{
-	color:rgba(0,0,0,0); 
-	text-shadow: 0 0 100px #000; 
 	opacity: 0; 
 }
 .p5txt span.on{ 
 	opacity: 1; 
-	color:rgba(0,0,0,1); 
-	text-shadow:0px 0px 4px #333; 
 }
 
 /**--------------------------------------------------------------------------------------------第六页--------------------------------------------------------------------**/
@@ -529,11 +513,9 @@ body {
 }
 .p6txt span{
 	color:rgba(0,0,0,0); 
-	text-shadow: 0 0 100px #000; 
 	opacity: 0; 
 }
 .p6txt span.on{ 
 	opacity: 1; 
 	color:rgba(255,255,255,1); 
-	text-shadow:0px 0px 4px #fff; 
 }
