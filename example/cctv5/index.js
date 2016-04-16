@@ -105,9 +105,9 @@ function p1ToP2(json){
 		
 	}
 	function txtBgEnd(){
-		json.oText.find('span')[0].className='animated fadeInUp';
+		json.oText.find('span')[0].className='animated fadeInUpBig';
 		setTimeout(function(){
-			json.oText.find('span')[1].className='animated fadeInUp';
+			json.oText.find('span')[1].className='animated fadeInUpBig';
 			json.oText.find('span')[1].addEventListener('webkitAnimationEnd', toL);
 		},300);
 	}
@@ -135,9 +135,9 @@ function p2ToP3(json){
 
 	function end(){
 		typewrite(json.oP3titEng, 'Beijing Hangzhou the <br> Grande Canale', function(){
-			json.oP3verse.find('span')[0].className='animated fadeInUp';
+			json.oP3verse.find('span')[0].className='animated fadeInUpBig';
 			setTimeout(function(){
-				json.oP3verse.find('span')[1].className='animated fadeInUp';
+				json.oP3verse.find('span')[1].className='animated fadeInUpBig';
 				json.oP3verse.find('span')[1].addEventListener('webkitAnimationEnd', end2);
 			},300);
 		},'.5s',100);
@@ -170,9 +170,9 @@ function p3ToP4(json){
 	}
 
 	function end2(){
-		json.oP4verse.find('span')[0].className='animated fadeInUp';
+		json.oP4verse.find('span')[0].className='animated fadeInUpBig';
 		setTimeout(function(){
-			json.oP4verse.find('span')[1].className='animated fadeInUp';
+			json.oP4verse.find('span')[1].className='animated fadeInUpBig';
 			json.oP4verse.find('span')[1].addEventListener('webkitAnimationEnd', end3);
 		},300);
 	}
