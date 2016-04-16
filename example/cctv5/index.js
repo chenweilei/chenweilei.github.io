@@ -355,7 +355,7 @@ load(resource,function(){
 				        });
 					$(document).longTap(function(){
 						oLongTapBg[0].className='longTapBg animated fadeIn';
-						oLongTapBg.css({'transform':'scale(50)'});
+						oLongTapBg.css({'transform':'scale(35)'});
 						oLongTapBg[0].addEventListener('webkitTransitionEnd',end);
 					});
 					function end(){
