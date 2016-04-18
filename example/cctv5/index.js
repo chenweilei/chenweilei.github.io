@@ -21,7 +21,6 @@ function load(arr,fn){
 		var oImg=new Image();
 		oImg.src='./images/'+arr[i];
 		oImg.onload=function(){
-			//console.log(n);
 			oLogo.css({
 				'transform':'scale('+Math.floor(n/(arr.length-1))+')',
 				'opacity':Math.floor(n/(arr.length-1)),
@@ -33,7 +32,6 @@ function load(arr,fn){
 			}
 			function logoLoad(){
 				fn && fn();
-				//console.log('成功');
 				oLogo[0].removeEventListener('webkitTransitionEnd',logoLoad);
 			}
 			n++;
@@ -205,13 +203,8 @@ function p4ToP5(json){
 
 //第五屏切换到第六屏效果
 function p5ToP6 (json){
-	json.oP6Bg1[0].className='p6Bg1 animated fadeIn';
-	json.oP6Bg1[0].addEventListener('webkitAnimationEnd', end);
-
-	function end(){
-		json.oP6Bg2[0].className='p6Bg2 animated fadeIn';
-		json.oP6Bg2[0].addEventListener('webkitAnimationEnd', end2);
-	}
+	json.oP6Bg2[0].className='p6Bg2 animated fadeIn';
+	json.oP6Bg2[0].addEventListener('webkitAnimationEnd', end2);
 
 	function end2(){
 		json.oP6Bg3[0].className='p6Bg3 animated fadeIn';
@@ -229,6 +222,131 @@ function p5ToP6 (json){
 		},'1.2s',240)
 	}
 }
+
+//第十一屏切换到第十二屏效果
+function p11ToP12 (json){
+	json.oP12Bg1.css({
+		transition:'2s all ease',
+		webkitTransition:'1s all ease',
+		transform: 'translate3d(0, 0, 0)'
+	})
+	json.oP12txt.css({
+		transition:'2s all ease',
+		webkitTransition:'2s all ease 1.8s',
+		height:'10rem',
+		opacity:'1'
+	});
+	json.oP12Bg2.css({
+		transition:'1s all ease',
+		webkitTransition:'1s all ease 3.8s',
+		transform: 'scale(1)',
+		opacity:'1'
+	})
+	json.oP12Bg3.css({
+		transition:'1s all ease',
+		webkitTransition:'1s all ease 5s',
+		opacity:'1'
+	})
+}
+//第十二屏切换到第十三屏效果
+function p12ToP13 (json){
+	json.oP13Bg1.css({
+		webkitTransition:'1s all ease',
+		transition:'1s all ease',
+		transform:'scale(1)',
+		webkitTransform:'scale(1)',
+	});
+	json.oP13Bg1[0].addEventListener('webkitTransitionEnd', end);
+	function end(){
+		json.oP13Bg2.css({
+			webkitTransition:'1s all ease',
+			transition:'1s all ease',
+			transform:'scale(1)',
+			webkitTransform:'scale(1)',
+		});
+		json.oP13Bg2[0].addEventListener('webkitTransitionEnd', end2);
+	}
+	function end2(){
+		json.oP13Bg3.css({
+			webkitTransition:'1s all ease',
+			transition:'1s all ease',
+			transform:'scale(1)',
+			webkitTransform:'scale(1)',
+		});
+		json.oP13Bg3[0].addEventListener('webkitTransitionEnd', end3);
+	}
+	function end3(){
+		json.oP13Bg4.css({
+			webkitTransition:'1s all ease',
+			transition:'1s all ease',
+			transform:'scale(1)',
+			webkitTransform:'scale(1)',
+		});
+		json.oP13Bg4[0].addEventListener('webkitTransitionEnd', end4);
+	}
+	function end4(){
+		json.oP13Bg5.css({
+			webkitTransition:'1s all ease',
+			transition:'1s all ease',
+			transform:'scale(1)',
+			webkitTransform:'scale(1)',
+		});
+		json.oP13Bg5[0].addEventListener('webkitTransitionEnd', end5);
+	}
+	function end5(){
+		json.oP13Bg6.css({
+			webkitTransition:'1s all ease',
+			transition:'1s all ease',
+			opacity:'1'
+		});
+		json.oP13Bg6[0].addEventListener('webkitTransitionEnd', end6);
+	}
+	function end6(){
+		typewrite(json.oP13txt1, '我们看到未来看到梦想', function(){
+			typewrite(json.oP13txt2, '这是雄心创造的', function(){
+				json.oP13Bg7.css({
+					webkitTransition:'1s all ease',
+					transition:'1s all ease',
+					opacity:'1',
+					height:'9.25rem'
+				});
+			}, '1.2s', 240)
+		},'1.2s',240)
+	}
+}
+//第十三屏切换到第十四屏效果
+function p13ToP14(json){
+	json.oP14Bg1.css({
+		webkitTransition:'1.5s all ease',
+		transition:'1.5s all ease',
+		opacity:'1',
+		height:'9.375rem'
+	});
+	json.oP14Bg1[0].addEventListener('webkitTransitionEnd', end);
+
+	function end(){
+		json.oP14Bg2.css({
+			webkitTransition:'1.5s all ease',
+			transition:'1.5s all ease',
+			opacity:'1',
+			width:'6.5rem'
+		});
+		json.oP14Bg2[0].addEventListener('webkitTransitionEnd', end2);
+	}
+
+	function end2(){
+		typewrite(json.oP14txt, '新闻频道五一推出',  function(){
+			json.oP14Bg3.css({
+				webkitTransition:'1.5s all cubic-bezier(0, 0, 0.85, 0.04)',
+				transition:'1.5s all ease',
+				opacity:'1',
+				transform:'translate3d(0, 0, 0)',
+				webkitTransform:'translate3d(0, 0, 0)'
+			});
+		},'1.2s',240)
+	}
+}
+
 load(resource,function(){
 	var oPW=$('.titleW'),  			//全局标题
 	
@@ -277,6 +395,30 @@ load(resource,function(){
 		oP6txt=$('.p6txt'),
 		oP6L=$('.p6L'),
 
+	//第十二页元素获取
+		oP12Bg1=$('.p12Bg1'),
+		oP12Bg2=$('.p12Bg2'),
+		oP12Bg3=$('.p12Bg3'),
+		oP12txt=$('.p12txt'),
+
+	//第十三页元素获取
+		oP13Bg1=$('.p13Bg1'),
+		oP13Bg2=$('.p13Bg2'),
+		oP13Bg3=$('.p13Bg3'),
+		oP13Bg4=$('.p13Bg4'),
+		oP13Bg5=$('.p13Bg5'),
+		oP13Bg6=$('.p13Bg6'),
+		oP13Bg7=$('.p13Bg7'),
+		oP13txt1=$('.p13txt1'),
+		oP13txt2=$('.p13txt2'),
+		oLongTapBg2=$('.longTapBg2'),
+
+	//第十四页元素获取
+		oP14Bg1=$('.p14Bg1'),
+		oP14Bg2=$('.p14Bg2'),
+		oP14Bg3=$('.p14Bg3'),
+		oP14txt=$('.p14txt'),
+
 	//当前页
 		activePage=1;
 	//page1打字
@@ -311,7 +453,6 @@ load(resource,function(){
 						});
 				break;
 			}
-			//console.log('1-2'+activePage);
 		},
 		allowSwipeToPrev : true
 	});
@@ -355,11 +496,11 @@ load(resource,function(){
 				        });
 					$(document).longTap(function(){
 						oLongTapBg[0].className='longTapBg animated fadeIn';
-						oLongTapBg.css({'transform':'scale(35)'});
+						oLongTapBg.css({'transform':'scale(25)'});
 						oLongTapBg[0].addEventListener('webkitTransitionEnd',end);
 					});
 					function end(){
-						swiper.slideNext();
+						swiperH1.slideNext();
 						oLongTapBg[0].removeEventListener('webkitTransitionEnd',end);
 					}
 				break;
@@ -375,7 +516,6 @@ load(resource,function(){
 					});
 				break;
 			}
-			console.log('2-5'+activePage);
 			if(activePage>2){
 				swiperV1.lockSwipeToPrev();
 			}
@@ -410,8 +550,6 @@ load(resource,function(){
 					});
 				break;
 			}
-			console.log('5-6'+activePage);
-			//alert(activePage);
 		},
 		keyboardControl:true
 	});
@@ -420,7 +558,7 @@ load(resource,function(){
 		followFinger : false,
 		spaceBetween: 0,
 		//allowSwipeToPrev : false,
-		onSlideChangeStart: function(swiper){
+		onSlideChangeEnd: function(swiper){
 			switch(swiper.activeIndex){
 				case 0:
 					activePage=6;
@@ -442,6 +580,14 @@ load(resource,function(){
 				break;
 				case 6:
 					activePage=12;
+					setTimeout(function(){
+						p11ToP12({
+							oP12Bg1:oP12Bg1,
+							oP12Bg2:oP12Bg2,
+							oP12Bg3:oP12Bg3,
+							oP12txt:oP12txt,
+						});
+					},300);
 				break;
 			}
 			if(activePage>6){
@@ -450,7 +596,6 @@ load(resource,function(){
 			else{
 				swiperV2.unlockSwipeToPrev();
 			}
-			console.log('6-12'+activePage);
 			//alert(activePage);
 		},
 		keyboardControl:true
@@ -460,7 +605,7 @@ load(resource,function(){
 		spaceBetween: 0,
 		followFinger : false,
 		keyboardControl:true,
-		onSlideChangeStart: function(swiper){
+		onSlideChangeEnd: function(swiper){
 			//activePage=mySwiper.activeIndex
 			switch(swiper.activeIndex){
 				case 0:
@@ -468,9 +613,35 @@ load(resource,function(){
 				break;
 				case 1:
 					activePage=13;
+					setTimeout(function(){
+						p12ToP13({
+							oP13Bg1:oP13Bg1,
+							oP13Bg2:oP13Bg2,
+							oP13Bg3:oP13Bg3,
+							oP13Bg4:oP13Bg4,
+							oP13Bg5:oP13Bg5,
+							oP13Bg6:oP13Bg6,
+							oP13Bg7:oP13Bg7,
+							oP13txt1:oP13txt1,
+							oP13txt2:oP13txt2
+						});
+					},300);
+					//将swiper锁定不让滑动
+					swiperV3 .lockSwipes();
+					$(document).on('touchstart',function(ev){
+					    ev.preventDefault();
+					});
+					$(document).longTap(function(){
+						oLongTapBg2[0].className='longTapBg2 animated fadeIn';
+						oLongTapBg2.css({'transform':'scale(20)'});
+						oLongTapBg2[0].addEventListener('webkitTransitionEnd',end2);
+					});
+					function end2(){
+						swiperH3.slideNext();
+						oLongTapBg2[0].removeEventListener('webkitTransitionEnd',end2);
+					}
 				break;
 			}
-			console.log('12-13'+activePage);
 			//alert(activePage);
 		},
 		//allowSwipeToPrev : false
@@ -478,9 +649,10 @@ load(resource,function(){
 	var swiperH3 = new Swiper('#h3>.swiper-container-h', {
 		direction:'horizontal',
 		spaceBetween: 0,
+		effect : 'fade',
 		followFinger : false,
 		//allowSwipeToPrev : false,
-		onSlideChangeStart: function(swiper){
+		onSlideChangeEnd: function(swiper){
 			switch(swiper.activeIndex){
 				case 0:
 					activePage=13;
@@ -488,6 +660,12 @@ load(resource,function(){
 
 				case 1:
 					activePage=14;
+					p13ToP14({
+						oP14Bg1:oP14Bg1,
+						oP14Bg2:oP14Bg2,
+						oP14Bg3:oP14Bg3,
+						oP14txt:oP14txt,
+					})
 				break;
 			}
 			if(activePage>13){
@@ -496,7 +674,6 @@ load(resource,function(){
 			else{
 				swiperV3.unlockSwipeToPrev();
 			}
-			console.log('13-14'+activePage);
 			//alert(activePage);
 		},
 		keyboardControl:true
@@ -516,10 +693,8 @@ load(resource,function(){
 					activePage=15;
 				break;
 			}
-			console.log('14-15'+activePage);
 			if(activePage==15){
 				swiperH3.lockSwipeToPrev();
-				oGoBack.css({'display':'block'});
 			}
 			else{
 				swiperH3.unlockSwipeToPrev();
@@ -528,18 +703,5 @@ load(resource,function(){
 			//alert(activePage);
 		},
 		keyboardControl:true
-	});
-	oGoBack.tap(function(){
-		swiperV1.setWrapperTranslate(0,0,0);
-		swiperH1.setWrapperTranslate(0,0,0);
-		$('#h1').css({'opacity':'0'});
-		swiperV2.setWrapperTranslate(0,0,0);
-		swiperH2.setWrapperTranslate(0,0,0);
-		swiperV3.setWrapperTranslate(0,0,0);
-		swiperH3.setWrapperTranslate(0,0,0);
-		swiperV4.setWrapperTranslate(0,0,0);
-		activePage=2;
-		console.log(activePage);
-		oGoBack.css({'display':'none'});
 	});
 });
