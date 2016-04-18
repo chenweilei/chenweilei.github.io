@@ -103,9 +103,9 @@ function p1ToP2(json){
 		
 	}
 	function txtBgEnd(){
-		json.oText.find('span')[0].className='animated zoomInUp';
+		json.oText.find('span')[0].className='animated fadeInUp';
 		setTimeout(function(){
-			json.oText.find('span')[1].className='animated zoomInUp';
+			json.oText.find('span')[1].className='animated fadeInUp';
 			json.oText.find('span')[1].addEventListener('webkitAnimationEnd', toL);
 		},300);
 	}
@@ -133,9 +133,9 @@ function p2ToP3(json){
 
 	function end(){
 		typewrite(json.oP3titEng, 'Beijing Hangzhou the <br> Grande Canale', function(){
-			json.oP3verse.find('span')[0].className='animated zoomInUp';
+			json.oP3verse.find('span')[0].className='animated fadeInUp';
 			setTimeout(function(){
-				json.oP3verse.find('span')[1].className='animated zoomInUp';
+				json.oP3verse.find('span')[1].className='animated fadeInUp';
 				json.oP3verse.find('span')[1].addEventListener('webkitAnimationEnd', end2);
 			},300);
 		},'.5s',100);
@@ -168,9 +168,9 @@ function p3ToP4(json){
 	}
 
 	function end2(){
-		json.oP4verse.find('span')[0].className='animated zoomInUp';
+		json.oP4verse.find('span')[0].className='animated fadeInUp';
 		setTimeout(function(){
-			json.oP4verse.find('span')[1].className='animated zoomInUp';
+			json.oP4verse.find('span')[1].className='animated fadeInUp';
 			json.oP4verse.find('span')[1].addEventListener('webkitAnimationEnd', end3);
 		},300);
 	}
@@ -335,15 +335,24 @@ function p13ToP14(json){
 	}
 
 	function end2(){
-		typewrite(json.oP14txt, '新闻频道五一推出',  function(){
-			json.oP14Bg3.css({
-				webkitTransition:'1.5s all cubic-bezier(0, 0, 0.85, 0.04)',
-				transition:'1.5s all ease',
-				opacity:'1',
-				transform:'translate3d(0, 0, 0)',
-				webkitTransform:'translate3d(0, 0, 0)'
-			});
-		},'1.2s',240)
+		json.oP14txt.css({
+			webkitTransition:'1s all ease',
+			transition:'1s all ease',
+			opacity:'1',
+			transform:'translate3d(0, 0, 0)',
+			webkitTransform:'translate3d(0, 0, 0)'
+		});
+		json.oP14txt[0].addEventListener('webkitTransitionEnd', end3);
+	}
+
+	function end3(){
+		json.oP14Bg3.css({
+			webkitTransition:'1.5s all cubic-bezier(0, 0, 0.85, 0.04)',
+			transition:'1.5s all ease',
+			opacity:'1',
+			transform:'translate3d(0, 0, 0)',
+			webkitTransform:'translate3d(0, 0, 0)'
+		});
 	}
 }
 

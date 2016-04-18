@@ -3,12 +3,7 @@ html, body {
     position: relative;
     height: 100%;
 }
-*{margin:0; padding:0;
-   -webkit-transform: translate3d(0, 0, 0);
-   -moz-transform: translate3d(0, 0, 0);
-   -ms-transform: translate3d(0, 0, 0);
-   transform: translate3d(0, 0, 0);
-}
+*{margin:0; padding:0;}
 body {
 	background: #eee;
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -1019,7 +1014,7 @@ body {
 	/*width:6.5rem*/
 	opacity: 0;
 	height:0.9rem;
-	top:51%;
+	top:57%;
 	left:6.85rem;
 }
 .p14Bg3{
@@ -1045,15 +1040,12 @@ body {
 	line-height: 1.25rem;
 	color:red;
 	text-align: center;
+	opacity: 0;
+	transform:translate3d(0, 2rem, 0);
+	-webkit-transform:translate3d(0, 2rem, 0);
 }
-.p14txt span{
-	color:rgba(0,0,0,0); 
-	opacity: 0; 
-}
-.p14txt span.on{ 
-	opacity: 1; 
-	color:red; 
-}
+
+
 /**--------------------------------------------------------------------------------------------第十五页--------------------------------------------------------------------**/
 .page15{
 	position: relative;
