@@ -3,7 +3,12 @@ html, body {
     position: relative;
     height: 100%;
 }
-*{margin:0; padding:0;}
+*{margin:0; padding:0;
+   -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   -ms-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+}
 body {
 	background: #eee;
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
