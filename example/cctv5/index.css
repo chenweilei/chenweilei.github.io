@@ -53,7 +53,7 @@ body {
 	position: fixed;
 	-webkit-transition:1.5s all ease;
 }
-.titleW , .titleP1{
+.titleW, .titleP1{
 	text-align: center;
 	width:16rem;
 	height:5rem;
@@ -91,20 +91,27 @@ body {
 
 @-webkit-keyframes pageOTop{
 	60%{
-		transform: translateY(0px);
+		transform: translate3d(0,0,0);
 		opacity: 1;
 	}
 	100%{
-		transform: translateY(0px);
+		transform: translate3d(0,0,0);
 		opacity: 0;
 	}
 }
 
 /**-------------------------------------------------------------------------------- 第二页---------------------------------------------------------------------------------------**/
+.swiper-wrapper{
+	transform-style: preserve-3d;
+	perspective: 800px;
+}
 .page2{
 	background: url(./images/bg2.jpg) no-repeat;
 	background-size:cover;
 	position: relative;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg) translate3d(0px, 0px, 0px);
+	perspective: 800px;
 }
 .page2Bg{
 	width:0rem;
@@ -114,10 +121,24 @@ body {
 	position: absolute;
 	bottom:0;
 	left:0;
+	z-index: 3;
+	transform: translate3d(0,0,0);
 	transition: 6s all ease;
 	-webkit-mask:-webkit-linear-gradient(left ,rgba(0,0,0,1) 70% , rgba(0,0,0,0) 100%);
 }
-
+.p2yun{
+	position: fixed;
+	bottom:0;
+	left:0;
+	width:42.05rem;
+	height:8rem;
+	z-index: 2;
+	opacity: 0;
+	display: none;
+	background: url(./images/p2yun.png) no-repeat;
+	background-size: cover;
+	transform: translate3d(-26rem, 0, 0);
+}
 .titleP2{
 	position: absolute;
 	text-align: center;
@@ -129,6 +150,7 @@ body {
 	margin-left:-8rem;
 	color:#fff;
 	display: none;
+	transform: translate3d(0,0,0);
 }
 .txtWall{
 	position: absolute;
@@ -137,6 +159,7 @@ body {
 	height:2.4rem;
 	box-sizing:border-box;
 	padding-left:0.775rem;
+	transform: translate3d(0,0,0);
 }
 .txtWall .page2P1{
 	display: inline-block;
@@ -144,7 +167,7 @@ body {
 	color:#fff; 
 	opacity: 0;
 	line-height: 2.4rem;
-	transition: 1s all ease;
+	transform: translate3d(-50px,0,0);
 }
 .txtWall .page2P2{
 	display: inline-block;
@@ -153,6 +176,7 @@ body {
 	color:#fff;
 	line-height: 1.2rem;
 	vertical-align: bottom;
+	transform: translate3d(0,0,0);
 }
 .txtWall .page2P2 span{
 	opacity: 0; 
@@ -169,6 +193,7 @@ body {
 	background:url(./images/page2Txt.png) no-repeat;
 	background-size: cover;
 	transition: 1s all ease;
+	transform: translate3d(0,0,0);
 }
 .page2 .text{
 	position: absolute;
@@ -177,10 +202,12 @@ body {
 	top:42%;
 }
 .page2 .text span{
+	display: block;
 	font-size: 0.85rem;
 	color:#fff;
 	line-height: 1.25rem;
 	opacity: 0;
+	transform: translate3d(0, 40px, 0);
 }
 .p2ToL{
 	width:6.35rem;
@@ -190,6 +217,8 @@ body {
 	position: absolute;
 	bottom:0;
 	left:50%;
+	z-index: 4;
+	transform: translateX(30px);
 	margin-left: -3.175rem;
 	opacity: 0;
 }
@@ -221,6 +250,7 @@ body {
 	color: #fff;
 	font-weight: normal;
 	opacity: 0;
+	transform: translate3d(-50px,0,0);
 }
 .p3TitEng{
 	position: absolute;
@@ -247,7 +277,9 @@ body {
 	line-height: 1.25rem;
 }
 .p3Verse span{
+	display: block;
 	opacity: 0;
+	transform: translate3d(0, 40px, 0);
 }
 .p3M{
 	position: absolute;
@@ -267,6 +299,7 @@ body {
 	background-size: cover;
 	bottom:0;
 	left:50%;
+	transform: translateX(30px);
 	margin-left: -3.175rem;
 	opacity: 0;
 }
@@ -298,6 +331,7 @@ body {
 	color: #fff;
 	font-weight: normal;
 	opacity: 0;
+	transform: translate3d(-50px,0,0);
 }
 .p4TitEng{
 	position: absolute;
@@ -324,7 +358,9 @@ body {
 	line-height: 1.25rem;
 }
 .p4Verse span{
+	display: block;
 	opacity: 0;
+	transform: translate3d(0, 40px, 0);
 }
 .p4M{
 	position: absolute;
@@ -336,6 +372,7 @@ body {
 	background-size: 11.4rem 1.45rem;
 	-webkit-transition: 1.5s all ease;
 }
+/*
 .p4ToL{
 	position: absolute;
 	width:6.35rem;
@@ -346,6 +383,25 @@ body {
 	left:50%;
 	margin-left: -3.175rem;
 	opacity: 0;
+}
+*/
+.p4ChangeGif, .p13ChangeGif{
+	position: absolute;
+	width:4rem;
+	height:4rem;
+	bottom:5%;
+	left:50%;
+	color:#fff;
+	font-size: 0.8rem;
+	line-height: 4rem;
+	text-align: center;
+	margin-left:-2rem;
+	background: url(./images/change.gif) no-repeat;
+	background-size: cover;
+	opacity: 0;
+	border-radius: 50%;
+	transform:translate3d(0,2rem,0);
+	-webkit-transform:translate3d(0,2rem,0);
 }
 .longTapBg{
 	position: absolute;
@@ -485,6 +541,7 @@ body {
 	height:4.425rem;
 	background: url(./images/p6L-456-177.png) no-repeat bottom;
 	background-size: 50%;
+	transform:translateX(30px);
 	opacity: 0;
 }
 .p6txt{
@@ -989,6 +1046,23 @@ body {
 	-webkit-transition: 2s all ease;
 	-webkit-transform:scale(0); 
 }
+/*
+.p13ChangeGif{
+	position: absolute;
+	width:4rem;
+	height:4rem;
+	bottom:5%;
+	left:50%;
+	margin-left:-2rem;
+	background: url(./images/change.gif) no-repeat;
+	background-size: cover;
+	opacity: 0;
+	border-radius: 50%;
+	transform:translate3d(0,2rem,0);
+	-webkit-transform:translate3d(0,2rem,0);
+}
+*/
+
 /**--------------------------------------------------------------------------------------------第十四页--------------------------------------------------------------------**/
 .page14{
 	position:relative;

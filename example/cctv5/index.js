@@ -84,33 +84,59 @@ function p1ToP2(json){
 		'font-size':'0.9rem',
 		'line-height':'1.25rem'
 	});
+	json.oP2yun.css({
+		display:'block',
+		opacity:'0.7',
+	});
+	setTimeout(function(){
+	json.oP2yun.css({
+		'transition':'30s all linear',
+		transform:'translate3d(0,0,0)'
+	});
+	},100);
 	json.oPW[0].addEventListener('webkitTransitionEnd',pwEnd);
-	function pwEnd(){
-		json.oP1.css({'display':'block'});
-		json.oP2.css({'display':'block'});
-		json.oPW.css({'display':'none'});
-		json.oPage2Bg.css({'width':'16rem'});
-		setTimeout(function(){
-			json.oTxtWallP.css({'opacity':'1'});
-		},700);
-		json.oTxtWallP[0].addEventListener('webkitTransitionEnd',txtWallEnd);
+	function pwEnd(ev){
+		if(ev.propertyName=='line-height'){
+			json.oP1.css({'display':'block'});
+			json.oP2.css({'display':'block'});
+			json.oPW.css({'display':'none'});
+			json.oPage2Bg.css({'width':'16rem'});
+			setTimeout(function(){
+				json.oTxtWallP.css({
+						transition:'1s all ease',
+						'opacity':'1',
+						transform:'translate3d(0,0,0)'
+					});
+			},700);
+			json.oTxtWallP[0].addEventListener('webkitTransitionEnd',txtWallEnd);
+		}
 	}
-	function txtWallEnd(){
-		typewrite(json.oTxtWallSp,'The <br> Great Wall', function(){
-			json.oTxtBg.css({'width':'12.325rem'});
-			json.oTxtBg[0].addEventListener('webkitTransitionEnd',txtBgEnd);
-		},'.5s',100)
-		
+	function txtWallEnd(ev){
+		if(ev.propertyName=='transform'){
+			typewrite(json.oTxtWallSp,'The <br> Great Wall', function(){
+				json.oTxtBg.css({'width':'12.325rem'});
+				json.oTxtBg[0].addEventListener('webkitTransitionEnd',txtBgEnd);
+			},'.5s',100)
+		}
 	}
 	function txtBgEnd(){
-		json.oText.find('span')[0].className='animated fadeInUp';
+		json.oText.find('span').eq(0).css({
+			transition:'1s all ease',
+			opacity:'1',
+			transform:'translate3d(0, 0, 0)'
+		});
 		setTimeout(function(){
-			json.oText.find('span')[1].className='animated fadeInUp';
-			json.oText.find('span')[1].addEventListener('webkitAnimationEnd', toL);
+			json.oText.find('span').eq(1).css({
+				transition:'1s all ease',
+				opacity:'1',
+				transform:'translate3d(0, 0, 0)'
+			});
+			json.oText.find('span')[1].addEventListener('webkitTransitionEnd', toL);
 		},300);
 	}
+
 	function toL(){
-		json.oP2ToL[0].className='p2ToL animated fadeInUp infinite';
+		json.oP2ToL[0].className='p2ToL addAni';
 	}
 }
 
@@ -127,18 +153,32 @@ function p2ToP3(json){
 	*/
 	json.oP3Bg.css({'width':'16rem'});
 	setTimeout(function(){
-		json.oP3Tit[0].className='animated p3Tit fadeIn';
-		json.oP3Tit[0].addEventListener('webkitAnimationEnd',end);
+		json.oP3Tit.css({
+			transition:'1s all ease',
+			'opacity':'1',
+			transform:'translate3d(0,0,0)'
+		});
+		json.oP3Tit[0].addEventListener('webkitTransitionEnd',end);
 	},200);
 
-	function end(){
-		typewrite(json.oP3titEng, 'Beijing Hangzhou the <br> Grande Canale', function(){
-			json.oP3verse.find('span')[0].className='animated fadeInUp';
-			setTimeout(function(){
-				json.oP3verse.find('span')[1].className='animated fadeInUp';
-				json.oP3verse.find('span')[1].addEventListener('webkitAnimationEnd', end2);
-			},300);
-		},'.5s',100);
+	function end(ev){
+		if(ev.propertyName=='transform'){
+			typewrite(json.oP3titEng, 'Beijing Hangzhou the <br> Grande Canale', function(){
+				json.oP3verse.find('span').eq(0).css({
+					transition:'1s all ease',
+					opacity:'1',
+					transform:'translate3d(0, 0, 0)'
+				});
+				setTimeout(function(){
+					json.oP3verse.find('span').eq(1).css({
+						transition:'1s all ease',
+						opacity:'1',
+						transform:'translate3d(0, 0, 0)'
+					});
+					json.oP3verse.find('span')[1].addEventListener('webkitTransitionEnd', end2);
+				},300);
+			},'.5s',100);
+		}
 	}
 
 	function end2(){
@@ -147,7 +187,7 @@ function p2ToP3(json){
 	}
 
 	function end3(){
-		json.oP3Tol[0].className='p3ToL animated fadeInUp infinite';
+		json.oP3Tol[0].className='p3ToL addAni';
 	}
 }
 
@@ -156,26 +196,46 @@ function p3ToP4(json){
 	json=json || {};
 	json.oP4Bg.css({'width':'16rem'});
 	setTimeout(function(){
-		json.oP4Tit[0].className='animated p3Tit fadeIn';
-		json.oP4Tit[0].addEventListener('webkitAnimationEnd',end);
+		json.oP4Tit.css({
+			transition:'1s all ease',
+			'opacity':'1',
+			transform:'translate3d(0,0,0)'
+		});
+		json.oP4Tit[0].addEventListener('webkitTransitionEnd',end);
 	},200);
 
-	function end(){
-		typewrite(json.oP4titEng, 'Dujiang Dam', function(){
-			json.oP4M.css({'width':'14rem'});
-			json.oP4M[0].addEventListener('webkitTransitionEnd',end2);
-		},'1s',200);
+	function end(ev){
+		if(ev.propertyName=='transform'){
+			typewrite(json.oP4titEng, 'Dujiang Dam', function(){
+				json.oP4M.css({'width':'14rem'});
+				json.oP4M[0].addEventListener('webkitTransitionEnd',end2);
+			},'1s',200);
+		}
 	}
 
 	function end2(){
-		json.oP4verse.find('span')[0].className='animated fadeInUp';
+		json.oP4verse.find('span').eq(0).css({
+			transition:'1s all ease',
+			opacity:'1',
+			transform:'translate3d(0, 0, 0)'
+		});
 		setTimeout(function(){
-			json.oP4verse.find('span')[1].className='animated fadeInUp';
-			json.oP4verse.find('span')[1].addEventListener('webkitAnimationEnd', end3);
+			json.oP4verse.find('span').eq(1).css({
+				transition:'1s all ease',
+				opacity:'1',
+				transform:'translate3d(0, 0, 0)'
+			});
+			json.oP4verse.find('span')[1].addEventListener('webkitTransitionEnd', end3);
 		},300);
 	}
 	function end3(){
-		json.oP4Tol[0].className='p3ToL animated fadeInUp infinite';
+		json.oP4Ch.css({
+			webkitTransition:'1s all ease',
+			transition:'1s all ease',
+			opacity:'1',
+			transform:'translate3d(0, 0, 0)',
+			webkitTransform:'translate3d(0, 0, 0)'
+		});
 	}
 }
 
@@ -218,7 +278,7 @@ function p5ToP6 (json){
 
 	function end4(){
 		typewrite(json.oP6txt, '今天的我们用什么改变世界 ？', function(){
-			json.oP6L[0].className='p6L animated fadeInUp infinite';
+			json.oP6L[0].className='p6L addAni';
 		},'1.2s',240)
 	}
 }
@@ -310,8 +370,19 @@ function p12ToP13 (json){
 					opacity:'1',
 					height:'9.25rem'
 				});
+				json.oP13Bg7[0].addEventListener('webkitTransitionEnd', end7);
 			}, '1.2s', 240)
 		},'1.2s',240)
+	}
+
+	function end7(){
+		json.oP13Ch.css({
+			webkitTransition:'1s all ease',
+			transition:'1s all ease',
+			opacity:'1',
+			transform:'translate3d(0, 0, 0)',
+			webkitTransform:'translate3d(0, 0, 0)'
+		});
 	}
 }
 //第十三屏切换到第十四屏效果
@@ -371,6 +442,7 @@ load(resource,function(){
 		oText=$('.text'),						//诗句
 		oP2ToL=$('.p2ToL'),				//向左箭头
 		oTxtBg=$('.txtBg'),					//长城米数图片
+		oP2yun=$('.p2yun'),
 
 	//第三页元素获取
 		oP3Tit=$('.p3Tit'),
@@ -385,7 +457,7 @@ load(resource,function(){
 		oP4titEng=$('.p4TitEng'),
 		oP4verse=$('.p4Verse'),
 		oP4M=$('.p4M'),
-		oP4Tol=$('.p4ToL'),
+		oP4Ch=$('.p4ChangeGif'),
 		oP4Bg=$('.page4Bg'),
 		oLongTapBg=$('.longTapBg'),
 
@@ -421,6 +493,7 @@ load(resource,function(){
 		oP13txt1=$('.p13txt1'),
 		oP13txt2=$('.p13txt2'),
 		oLongTapBg2=$('.longTapBg2'),
+		oP13Ch=$('.p13ChangeGif'),
 
 	//第十四页元素获取
 		oP14Bg1=$('.p14Bg1'),
@@ -434,13 +507,14 @@ load(resource,function(){
 	typewrite(oPW,'伟大的时代<br>缔造伟大的工程',function(){
 		oPageTop[0].className='page1Top addAni';
 	});
+	//是否是第一次进入第四页
+	var toP4count='4';
+	//是否是第一次进入第十三页
+	var toP13count='13';
 
-	var oGoBack=$('#goBack');
 	var swiperV1 = new Swiper('#v1>.swiper-container-v', {
 		direction:'vertical',
 		followFinger : false,
-		effect : 'fade',
-		eyboardControl:true,
 		onSlideChangeStart: function(swiper){
 			//activePage=mySwiper.activeIndex
 			switch(swiper.activeIndex){
@@ -458,7 +532,8 @@ load(resource,function(){
 							  oTxtWallSp:oTxtWallSp,
 							  oTxtBg:oTxtBg,
 							  oText:oText,
-							  oP2ToL:oP2ToL
+							  oP2ToL:oP2ToL,
+							  oP2yun:oP2yun
 						});
 				break;
 			}
@@ -467,10 +542,11 @@ load(resource,function(){
 	});
 	var swiperH1 = new Swiper('#h1>.swiper-container-h', {
 		direction:'horizontal',
-		followFinger : false,
+		followFinger : true,
 		spaceBetween: 0,
 		//allowSwipeToPrev : false,
 		onSlideChangeEnd: function(swiper){
+			swiper.unlockSwipes();
 			switch(swiper.activeIndex){
 				case 0:
 					activePage=2;
@@ -495,15 +571,22 @@ load(resource,function(){
 						oP4titEng:oP4titEng,
 						oP4verse:oP4verse,
 						oP4M:oP4M,
-						oP4Tol:oP4Tol,
+						oP4Ch:oP4Ch,
 						oP4Bg:oP4Bg
 					});
 					//将swiper锁定不让滑动
-					swiper.lockSwipes();
-				        $(document).on('touchstart',function(ev){
-				            ev.preventDefault();
-				        });
+					//console.log(toP4count);
+					if(toP4count=='4'){
+						swiper.lockSwipes();
+					}
+					else{
+						swiper.unlockSwipes();
+					}
+					$(document).on('touchstart',function(ev){
+					    ev.preventDefault();
+					});
 					$(document).longTap(function(){
+						oP2yun.css({'display':'none'});
 						oLongTapBg[0].className='longTapBg animated fadeIn';
 						oLongTapBg.css({'transform':'scale(25)'});
 						oLongTapBg[0].addEventListener('webkitTransitionEnd',end);
@@ -515,7 +598,10 @@ load(resource,function(){
 				break;
 				case 3:
 					activePage=5;
+					oLongTapBg.css({'display':'none'});
 					//滑到第五页时
+					toP4count='45';
+					console.log(toP4count);
 					p4ToP5({
 						oP5Bg1:oP5Bg1,
 						oP5Bg2:oP5Bg2,
@@ -545,6 +631,7 @@ load(resource,function(){
 			switch(swiper.activeIndex){
 				case 0:
 					activePage=5;
+					toP4count==2;
 				break;
 				case 1:
 					activePage=6;
@@ -616,6 +703,7 @@ load(resource,function(){
 		keyboardControl:true,
 		onSlideChangeEnd: function(swiper){
 			//activePage=mySwiper.activeIndex
+			swiper.unlockSwipes();
 			switch(swiper.activeIndex){
 				case 0:
 					activePage=12;
@@ -632,11 +720,17 @@ load(resource,function(){
 							oP13Bg6:oP13Bg6,
 							oP13Bg7:oP13Bg7,
 							oP13txt1:oP13txt1,
-							oP13txt2:oP13txt2
+							oP13txt2:oP13txt2,
+							oP13Ch:oP13Ch
 						});
 					},300);
 					//将swiper锁定不让滑动
-					swiperV3 .lockSwipes();
+					if(toP13count=='13'){
+						swiperV3 .lockSwipes();
+					}
+					else{
+						swiper.unlockSwipes();
+					}
 					$(document).on('touchstart',function(ev){
 					    ev.preventDefault();
 					});
@@ -669,6 +763,8 @@ load(resource,function(){
 
 				case 1:
 					activePage=14;
+					toP13count='1314';
+					oLongTapBg2.css({'display':'none'});
 					p13ToP14({
 						oP14Bg1:oP14Bg1,
 						oP14Bg2:oP14Bg2,
@@ -707,7 +803,6 @@ load(resource,function(){
 			}
 			else{
 				swiperH3.unlockSwipeToPrev();
-				oGoBack.css({'display':'none'});
 			}
 			//alert(activePage);
 		},
