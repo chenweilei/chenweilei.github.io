@@ -198,6 +198,7 @@ function typewrite(obj,str,fn,time1,time2){
 	},time2);
 }
 
+/*
 //7-11页重力感应
 function gravity(obj){
 	return
@@ -215,6 +216,7 @@ function gravity(obj){
 		})
 	}
 }
+*/
 
 //第一屏切换到第二屏效果
 function p1ToP2(json){
@@ -420,6 +422,227 @@ function p5ToP6 (json){
 		typewrite(json.oP6txt, '今天的我们用什么改变世界 ？', function(){
 			json.oP6L[0].className='p6L addAni';
 		},'1.2s',240)
+	}
+}
+
+//第六屏切换到第七屏效果
+function p6ToP7(json){
+
+	json.oP7Bg1[0].className=' p7Bg1 animated  fadeIn ';
+	json.oP7Bg1[0].addEventListener('webkitAnimationEnd', end);
+
+	function end(){
+		json.oP7Bg2[0].className=' p7Bg2 animated fadeInDownBig';
+		json.oP7Bg2[0].addEventListener('webkitAnimationEnd', end2);
+	}
+	function end2(){
+		json.oP7Bg3[0].className='p7Bg3 animated   fadeInLeftBig';
+		json.oP7Bg3[0].addEventListener('webkitAnimationEnd', end3);
+	}
+	function end3(){
+		json.oP7Bg4[0].className='p7Bg4  animated  fadeInRightBig';
+		json.oP7Bg4[0].addEventListener('webkitAnimationEnd', end4);
+	}
+	function end4(){
+		json.oP7Bg5[0].className='p7Bg5 animated  fadeInUpBig ';
+		json.oP7Bg5[0].addEventListener('webkitAnimationEnd', end5);
+	}
+	function end5(){
+		json.oP7Bg6[0].className='p7Bg6 animated   fadeInLeftBig ';
+		json.oP7Bg6[0].addEventListener('webkitAnimationEnd', end6);
+	}
+	function end6(){
+		json.oP7Bg7[0].className='p7Bg7 animated fadeInRightBig ';
+		json.oP7Bg7[0].addEventListener('webkitAnimationEnd', end7);
+	}
+	function end7(){
+		json.oP7Tit[0].className='p7tit animated fadeInDownBig';
+		json.oP7Tit[0].addEventListener('webkitAnimationEnd', end8);
+	}
+	function end8(){
+		json.oP7Det.find('a')[0].className='p7det animated  fadeInLeftBig ';
+		json.oP7Det.find('a')[0].addEventListener('webkitAnimationEnd', end9);
+	}
+	function end9(){
+		json.oP7Det.css({
+			transition:'1s all ease',
+			'color':'rgba(255, 255, 255, 1)'
+		});
+	}
+}
+//第七屏切换到第八屏效果
+function p7ToP8(json){
+
+	json.oP8Bg1[0].className=' p8Bg1 animated  fadeIn ';
+	json.oP8Bg1[0].addEventListener('webkitAnimationEnd', end);
+
+	function end(){
+		json.oP8Bg2[0].className=' p8Bg2 animated fadeInDownBig';
+		json.oP8Bg2[0].addEventListener('webkitAnimationEnd', end2);
+	}
+	function end2(){
+		json.oP8Bg3[0].className='p8Bg3 animated   fadeInLeftBig';
+		json.oP8Bg3[0].addEventListener('webkitAnimationEnd', end3);
+	}
+	function end3(){
+		json.oP8Bg4[0].className='p8Bg4  animated  fadeInRightBig';
+		json.oP8Bg4[0].addEventListener('webkitAnimationEnd', end4);
+	}
+	function end4(){
+		json.oP8Bg5[0].className='p8Bg5 animated  fadeInUpBig ';
+		json.oP8Bg5[0].addEventListener('webkitAnimationEnd', end5);
+	}
+	function end5(){
+		json.oP8Bg6[0].className='p8Bg6 animated   fadeInLeftBig ';
+		json.oP8Bg6[0].addEventListener('webkitAnimationEnd', end6);
+	}
+	function end6(){
+		json.oP8Bg7[0].className='p8Bg7 animated fadeInRightBig ';
+		json.oP8Bg7[0].addEventListener('webkitAnimationEnd', end7);
+	}
+	function end7(){
+		json.oP8Tit[0].className='p8tit animated fadeInDownBig';
+		json.oP8Tit[0].addEventListener('webkitAnimationEnd', end8);
+	}
+	function end8(){
+		json.oP8Det.find('a')[0].className='p8det animated  fadeInLeftBig ';
+		json.oP8Det.find('a')[0].addEventListener('webkitAnimationEnd', end9);
+	}
+	function end9(){
+		json.oP8Det.css({
+			transition:'1s all ease',
+			'color':'rgba(255, 255, 255, 1)'
+		});
+	}
+}
+
+//第八屏切换到第九屏效果
+function p8ToP9(json){
+
+	json.oP9Bg1[0].className=' p9Bg1 animated  fadeIn ';
+	json.oP9Bg1[0].addEventListener('webkitAnimationEnd', end);
+
+	function end(){
+		json.oP9Bg2[0].className=' p9Bg2 animated fadeInDownBig';
+		json.oP9Bg2[0].addEventListener('webkitAnimationEnd', end2);
+	}
+	function end2(){
+		json.oP9Bg3[0].className='p9Bg3 animated   fadeInLeftBig';
+		json.oP9Bg3[0].addEventListener('webkitAnimationEnd', end3);
+	}
+	function end3(){
+		json.oP9Bg4[0].className='p9Bg4  animated  fadeInRightBig';
+		json.oP9Bg4[0].addEventListener('webkitAnimationEnd', end4);
+	}
+	function end4(){
+		json.oP9Bg5[0].className='p9Bg5 animated  fadeInUpBig ';
+		json.oP9Bg5[0].addEventListener('webkitAnimationEnd', end5);
+	}
+	function end5(){
+		json.oP9Bg6[0].className='p9Bg6 animated   fadeInLeftBig ';
+		json.oP9Bg6[0].addEventListener('webkitAnimationEnd', end6);
+	}
+	function end6(){
+		json.oP9Bg7[0].className='p9Bg7 animated fadeInRightBig ';
+		json.oP9Bg7[0].addEventListener('webkitAnimationEnd', end7);
+	}
+	function end7(){
+		json.oP9Tit[0].className='p9tit animated fadeInDownBig';
+		json.oP9Tit[0].addEventListener('webkitAnimationEnd', end8);
+	}
+	function end8(){
+		json.oP9Det.find('a')[0].className='p9det animated  fadeInLeftBig ';
+		json.oP9Det.find('a')[0].addEventListener('webkitAnimationEnd', end9);
+	}
+	function end9(){
+		json.oP9Det.css({
+			transition:'1s all ease',
+			'color':'rgba(255, 255, 255, 1)'
+		});
+	}
+}
+
+//第九屏切换到第十屏效果
+function p9ToP10(json){
+
+	json.oP10Bg1[0].className=' p10Bg1 animated  fadeIn ';
+	json.oP10Bg1[0].addEventListener('webkitAnimationEnd', end);
+
+	function end(){
+		json.oP10Bg2[0].className=' p10Bg2 animated fadeInDownBig';
+		json.oP10Bg2[0].addEventListener('webkitAnimationEnd', end2);
+	}
+	function end2(){
+		json.oP10Bg3[0].className='p10Bg3 animated   fadeInLeftBig';
+		json.oP10Bg3[0].addEventListener('webkitAnimationEnd', end3);
+	}
+	function end3(){
+		json.oP10Bg4[0].className='p10Bg4  animated  fadeInRightBig';
+		json.oP10Bg4[0].addEventListener('webkitAnimationEnd', end4);
+	}
+	function end4(){
+		json.oP10Bg5[0].className='p10Bg5 animated  fadeInUpBig ';
+		json.oP10Bg5[0].addEventListener('webkitAnimationEnd', end5);
+	}
+	function end5(){
+		json.oP10Bg6[0].className='p10Bg6 animated   fadeInLeftBig ';
+		json.oP10Bg6[0].addEventListener('webkitAnimationEnd', end6);
+	}
+	function end6(){
+		json.oP10Bg7[0].className='p10Bg7 animated fadeInRightBig ';
+		json.oP10Bg7[0].addEventListener('webkitAnimationEnd', end7);
+	}
+	function end7(){
+		json.oP10Tit[0].className='p10tit animated fadeInDownBig';
+		json.oP10Tit[0].addEventListener('webkitAnimationEnd', end8);
+	}
+	function end8(){
+		json.oP10Det.find('a')[0].className='p10det animated  fadeInLeftBig ';
+		json.oP10Det.find('a')[0].addEventListener('webkitAnimationEnd', end9);
+	}
+	function end9(){
+		json.oP10Det.css({
+			transition:'1s all ease',
+			'color':'rgba(255, 255, 255, 1)'
+		});
+	}
+}
+
+//第十屏切换到第十一屏效果
+function p10ToP11(json){
+
+	json.oP11Bg1[0].className=' p11Bg1 animated  fadeIn ';
+	json.oP11Bg1[0].addEventListener('webkitAnimationEnd', end);
+
+	function end(){
+		json.oP11Bg2[0].className=' p11Bg2 animated fadeInDownBig';
+		json.oP11Bg2[0].addEventListener('webkitAnimationEnd', end2);
+	}
+	function end2(){
+		json.oP11Bg3[0].className='p11Bg3 animated   fadeInLeftBig';
+		json.oP11Bg3[0].addEventListener('webkitAnimationEnd', end3);
+	}
+	function end3(){
+		json.oP11Bg4[0].className='p11Bg4  animated  fadeInRightBig';
+		json.oP11Bg4[0].addEventListener('webkitAnimationEnd', end4);
+	}
+	function end4(){
+		json.oP11Bg5[0].className='p11Bg5 animated  fadeInUpBig ';
+		json.oP11Bg5[0].addEventListener('webkitAnimationEnd', end5);
+	}
+	function end5(){
+		json.oP11Tit[0].className='p11tit animated fadeInDownBig';
+		json.oP11Tit[0].addEventListener('webkitAnimationEnd', end6);
+	}
+	function end6(){
+		json.oP11Det.find('a')[0].className='p11det animated  fadeInLeftBig ';
+		json.oP11Det.find('a')[0].addEventListener('webkitAnimationEnd', end7);
+	}
+	function end7(){
+		json.oP11Det.css({
+			transition:'1s all ease',
+			'color':'rgba(255, 255, 255, 1)'
+		});
 	}
 }
 
@@ -636,6 +859,52 @@ $(function(){
 			oP7Tit=$('.p7tit'),
 			oP7Det=$('.p7det'),
 
+		//第八页元素获取
+			oP8=$('.page8'),
+			oP8Bg1=$('.p8Bg1'),
+			oP8Bg2=$('.p8Bg2'),
+			oP8Bg3=$('.p8Bg3'),
+			oP8Bg4=$('.p8Bg4'),
+			oP8Bg5=$('.p8Bg5'),
+			oP8Bg6=$('.p8Bg6'),
+			oP8Bg7=$('.p8Bg7'),
+			oP8Tit=$('.p8tit'),
+			oP8Det=$('.p8det'),
+
+		//第九页元素获取
+			oP9=$('.page9'),
+			oP9Bg1=$('.p9Bg1'),
+			oP9Bg2=$('.p9Bg2'),
+			oP9Bg3=$('.p9Bg3'),
+			oP9Bg4=$('.p9Bg4'),
+			oP9Bg5=$('.p9Bg5'),
+			oP9Bg6=$('.p9Bg6'),
+			oP9Bg7=$('.p9Bg7'),
+			oP9Tit=$('.p9tit'),
+			oP9Det=$('.p9det'),
+
+		//第十页元素获取
+			oP10=$('.page10'),
+			oP10Bg1=$('.p10Bg1'),
+			oP10Bg2=$('.p10Bg2'),
+			oP10Bg3=$('.p10Bg3'),
+			oP10Bg4=$('.p10Bg4'),
+			oP10Bg5=$('.p10Bg5'),
+			oP10Bg6=$('.p10Bg6'),
+			oP10Bg7=$('.p10Bg7'),
+			oP10Tit=$('.p10tit'),
+			oP10Det=$('.p10det'),
+
+		//第十一页元素获取
+			oP11=$('.page11'),
+			oP11Bg1=$('.p11Bg1'),
+			oP11Bg2=$('.p11Bg2'),
+			oP11Bg3=$('.p11Bg3'),
+			oP11Bg4=$('.p11Bg4'),
+			oP11Bg5=$('.p11Bg5'),
+			oP11Tit=$('.p11tit'),
+			oP11Det=$('.p11det'),
+
 		//第十二页元素获取
 			oP12Bg1=$('.p12Bg1'),
 			oP12Bg2=$('.p12Bg2'),
@@ -827,19 +1096,76 @@ $(function(){
 					break;
 					case 1:
 						activePage=7;
-						gravity(oP7);
+						p6ToP7({
+							oP7:oP7,
+							oP7Bg1:oP7Bg1,
+							oP7Bg2:oP7Bg2,
+							oP7Bg3:oP7Bg3,
+							oP7Bg4:oP7Bg4,
+							oP7Bg5:oP7Bg5,
+							oP7Bg6:oP7Bg6,
+							oP7Bg7:oP7Bg7,
+							oP7Tit:oP7Tit,
+							oP7Det:oP7Det
+						});
 					break;
 					case 2:
 						activePage=8;
+						p7ToP8({
+							oP8:oP8,
+							oP8Bg1:oP8Bg1,
+							oP8Bg2:oP8Bg2,
+							oP8Bg3:oP8Bg3,
+							oP8Bg4:oP8Bg4,
+							oP8Bg5:oP8Bg5,
+							oP8Bg6:oP8Bg6,
+							oP8Bg7:oP8Bg7,
+							oP8Tit:oP8Tit,
+							oP8Det:oP8Det
+						});
 					break;
 					case 3:
 						activePage=9;
+						p8ToP9({
+							oP9:oP9,
+							oP9Bg1:oP9Bg1,
+							oP9Bg2:oP9Bg2,
+							oP9Bg3:oP9Bg3,
+							oP9Bg4:oP9Bg4,
+							oP9Bg5:oP9Bg5,
+							oP9Bg6:oP9Bg6,
+							oP9Bg7:oP9Bg7,
+							oP9Tit:oP9Tit,
+							oP9Det:oP9Det
+						});
 					break;
 					case 4:
 						activePage=10;
+						p9ToP10({
+							oP10:oP10,
+							oP10Bg1:oP10Bg1,
+							oP10Bg2:oP10Bg2,
+							oP10Bg3:oP10Bg3,
+							oP10Bg4:oP10Bg4,
+							oP10Bg5:oP10Bg5,
+							oP10Bg6:oP10Bg6,
+							oP10Bg7:oP10Bg7,
+							oP10Tit:oP10Tit,
+							oP10Det:oP10Det
+						});
 					break;
 					case 5:
 						activePage=11;
+						p10ToP11({
+							oP11:oP11,
+							oP11Bg1:oP11Bg1,
+							oP11Bg2:oP11Bg2,
+							oP11Bg3:oP11Bg3,
+							oP11Bg4:oP11Bg4,
+							oP11Bg5:oP11Bg5,
+							oP11Tit:oP11Tit,
+							oP11Det:oP11Det
+						});
 					break;
 					case 6:
 						activePage=12;
