@@ -428,31 +428,31 @@ function p5ToP6 (json){
 //第六屏切换到第七屏效果
 function p6ToP7(json){
 
-	json.oP7Bg1[0].className=' p7Bg1 animated  fadeIn ';
+	json.oP7Bg1[0].className=' p7Bg1 animated  fadeIn  ';
 	json.oP7Bg1[0].addEventListener('webkitAnimationEnd', end);
 
 	function end(){
-		json.oP7Bg2[0].className=' p7Bg2 animated fadeInDownBig';
+		json.oP7Bg2[0].className=' p7Bg2 animated  fadeIn   '; //' p7Bg2 animated  fadeInDownBig';
 		json.oP7Bg2[0].addEventListener('webkitAnimationEnd', end2);
 	}
 	function end2(){
-		json.oP7Bg3[0].className='p7Bg3 animated   fadeInLeftBig';
+		json.oP7Bg3[0].className=' p7Bg3 animated  fadeIn   ';//'p7Bg3 animated   fadeInLeftBig';
 		json.oP7Bg3[0].addEventListener('webkitAnimationEnd', end3);
 	}
 	function end3(){
-		json.oP7Bg4[0].className='p7Bg4  animated  fadeInRightBig';
+		json.oP7Bg4[0].className=' p7Bg4 animated  fadeIn   ';//'p7Bg4  animated  fadeInRightBig';
 		json.oP7Bg4[0].addEventListener('webkitAnimationEnd', end4);
 	}
 	function end4(){
-		json.oP7Bg5[0].className='p7Bg5 animated  fadeInUpBig ';
+		json.oP7Bg5[0].className=' p7Bg5 animated  fadeIn   ';//'p7Bg5 animated  fadeInUpBig ';
 		json.oP7Bg5[0].addEventListener('webkitAnimationEnd', end5);
 	}
 	function end5(){
-		json.oP7Bg6[0].className='p7Bg6 animated   fadeInLeftBig ';
+		json.oP7Bg6[0].className=' p7Bg6 animated  fadeIn   ';//'p7Bg6 animated   fadeInLeftBig ';
 		json.oP7Bg6[0].addEventListener('webkitAnimationEnd', end6);
 	}
 	function end6(){
-		json.oP7Bg7[0].className='p7Bg7 animated fadeInRightBig ';
+		json.oP7Bg7[0].className=' p7Bg7 animated  fadeIn   ';//'p7Bg7 animated fadeInRightBig ';
 		json.oP7Bg7[0].addEventListener('webkitAnimationEnd', end7);
 	}
 	function end7(){
@@ -473,31 +473,31 @@ function p6ToP7(json){
 //第七屏切换到第八屏效果
 function p7ToP8(json){
 
-	json.oP8Bg1[0].className=' p8Bg1 animated  fadeIn ';
+	json.oP8Bg1[0].className=' p8Bg1 animated  fadeIn  ';//' p8Bg1 animated  fadeIn ';
 	json.oP8Bg1[0].addEventListener('webkitAnimationEnd', end);
 
 	function end(){
-		json.oP8Bg2[0].className=' p8Bg2 animated fadeInDownBig';
+		json.oP8Bg2[0].className=' p8Bg2 animated  fadeIn ';//' p8Bg2 animated fadeInDownBig';
 		json.oP8Bg2[0].addEventListener('webkitAnimationEnd', end2);
 	}
 	function end2(){
-		json.oP8Bg3[0].className='p8Bg3 animated   fadeInLeftBig';
+		json.oP8Bg3[0].className=' p8Bg3 animated  fadeIn  ';//'p8Bg3 animated   fadeInLeftBig';
 		json.oP8Bg3[0].addEventListener('webkitAnimationEnd', end3);
 	}
 	function end3(){
-		json.oP8Bg4[0].className='p8Bg4  animated  fadeInRightBig';
+		json.oP8Bg4[0].className=' p8Bg4 animated  fadeIn ';//'p8Bg4  animated  fadeInRightBig';
 		json.oP8Bg4[0].addEventListener('webkitAnimationEnd', end4);
 	}
 	function end4(){
-		json.oP8Bg5[0].className='p8Bg5 animated  fadeInUpBig ';
+		json.oP8Bg5[0].className=' p8Bg5 animated  fadeIn ';//'p8Bg5 animated  fadeInUpBig ';
 		json.oP8Bg5[0].addEventListener('webkitAnimationEnd', end5);
 	}
 	function end5(){
-		json.oP8Bg6[0].className='p8Bg6 animated   fadeInLeftBig ';
+		json.oP8Bg6[0].className=' p8Bg6 animated  fadeIn ';//'p8Bg6 animated   fadeInLeftBig ';
 		json.oP8Bg6[0].addEventListener('webkitAnimationEnd', end6);
 	}
 	function end6(){
-		json.oP8Bg7[0].className='p8Bg7 animated fadeInRightBig ';
+		json.oP8Bg7[0].className=' p8Bg7 animated  fadeIn';//'p8Bg7 animated fadeInRightBig ';
 		json.oP8Bg7[0].addEventListener('webkitAnimationEnd', end7);
 	}
 	function end7(){
@@ -519,31 +519,31 @@ function p7ToP8(json){
 //第八屏切换到第九屏效果
 function p8ToP9(json){
 
-	json.oP9Bg1[0].className=' p9Bg1 animated  fadeIn ';
+	json.oP9Bg1[0].className=' p9Bg1 animated  fadeIn';
 	json.oP9Bg1[0].addEventListener('webkitAnimationEnd', end);
 
 	function end(){
-		json.oP9Bg2[0].className=' p9Bg2 animated fadeInDownBig';
+		json.oP9Bg2[0].className=' p9Bg2 animated  fadeIn';//' p9Bg2 animated fadeInDownBig';
 		json.oP9Bg2[0].addEventListener('webkitAnimationEnd', end2);
 	}
 	function end2(){
-		json.oP9Bg3[0].className='p9Bg3 animated   fadeInLeftBig';
+		json.oP9Bg3[0].className=' p9Bg3 animated  fadeIn';//'p9Bg3 animated   fadeInLeftBig';
 		json.oP9Bg3[0].addEventListener('webkitAnimationEnd', end3);
 	}
 	function end3(){
-		json.oP9Bg4[0].className='p9Bg4  animated  fadeInRightBig';
+		json.oP9Bg4[0].className=' p9Bg4 animated  fadeIn';//'p9Bg4  animated  fadeInRightBig';
 		json.oP9Bg4[0].addEventListener('webkitAnimationEnd', end4);
 	}
 	function end4(){
-		json.oP9Bg5[0].className='p9Bg5 animated  fadeInUpBig ';
+		json.oP9Bg5[0].className=' p9Bg5 animated  fadeIn';//'p9Bg5 animated  fadeInUpBig ';
 		json.oP9Bg5[0].addEventListener('webkitAnimationEnd', end5);
 	}
 	function end5(){
-		json.oP9Bg6[0].className='p9Bg6 animated   fadeInLeftBig ';
+		json.oP9Bg6[0].className=' p9Bg6 animated  fadeIn';//'p9Bg6 animated   fadeInLeftBig ';
 		json.oP9Bg6[0].addEventListener('webkitAnimationEnd', end6);
 	}
 	function end6(){
-		json.oP9Bg7[0].className='p9Bg7 animated fadeInRightBig ';
+		json.oP9Bg7[0].className=' p9Bg7 animated  fadeIn';//'p9Bg7 animated fadeInRightBig ';
 		json.oP9Bg7[0].addEventListener('webkitAnimationEnd', end7);
 	}
 	function end7(){
@@ -569,27 +569,27 @@ function p9ToP10(json){
 	json.oP10Bg1[0].addEventListener('webkitAnimationEnd', end);
 
 	function end(){
-		json.oP10Bg2[0].className=' p10Bg2 animated fadeInDownBig';
+		json.oP10Bg2[0].className=' p10Bg2 animated  fadeIn';//' p10Bg2 animated fadeInDownBig';
 		json.oP10Bg2[0].addEventListener('webkitAnimationEnd', end2);
 	}
 	function end2(){
-		json.oP10Bg3[0].className='p10Bg3 animated   fadeInLeftBig';
+		json.oP10Bg3[0].className=' p10Bg3 animated  fadeIn';//'p10Bg3 animated   fadeInLeftBig';
 		json.oP10Bg3[0].addEventListener('webkitAnimationEnd', end3);
 	}
 	function end3(){
-		json.oP10Bg4[0].className='p10Bg4  animated  fadeInRightBig';
+		json.oP10Bg4[0].className=' p10Bg4 animated  fadeIn';//'p10Bg4  animated  fadeInRightBig';
 		json.oP10Bg4[0].addEventListener('webkitAnimationEnd', end4);
 	}
 	function end4(){
-		json.oP10Bg5[0].className='p10Bg5 animated  fadeInUpBig ';
+		json.oP10Bg5[0].className=' p10Bg5 animated  fadeIn';//'p10Bg5 animated  fadeInUpBig ';
 		json.oP10Bg5[0].addEventListener('webkitAnimationEnd', end5);
 	}
 	function end5(){
-		json.oP10Bg6[0].className='p10Bg6 animated   fadeInLeftBig ';
+		json.oP10Bg6[0].className=' p10Bg6 animated  fadeIn';//'p10Bg6 animated   fadeInLeftBig ';
 		json.oP10Bg6[0].addEventListener('webkitAnimationEnd', end6);
 	}
 	function end6(){
-		json.oP10Bg7[0].className='p10Bg7 animated fadeInRightBig ';
+		json.oP10Bg7[0].className=' p10Bg7 animated  fadeIn';//'p10Bg7 animated fadeInRightBig ';
 		json.oP10Bg7[0].addEventListener('webkitAnimationEnd', end7);
 	}
 	function end7(){
@@ -611,23 +611,23 @@ function p9ToP10(json){
 //第十屏切换到第十一屏效果
 function p10ToP11(json){
 
-	json.oP11Bg1[0].className=' p11Bg1 animated  fadeIn ';
+	json.oP11Bg1[0].className=' p11Bg1 animated  fadeIn';
 	json.oP11Bg1[0].addEventListener('webkitAnimationEnd', end);
 
 	function end(){
-		json.oP11Bg2[0].className=' p11Bg2 animated fadeInDownBig';
+		json.oP11Bg2[0].className=' p11Bg2 animated  fadeIn';//' p11Bg2 animated fadeInDownBig';
 		json.oP11Bg2[0].addEventListener('webkitAnimationEnd', end2);
 	}
 	function end2(){
-		json.oP11Bg3[0].className='p11Bg3 animated   fadeInLeftBig';
+		json.oP11Bg3[0].className=' p11Bg3 animated  fadeIn';//'p11Bg3 animated   fadeInLeftBig';
 		json.oP11Bg3[0].addEventListener('webkitAnimationEnd', end3);
 	}
 	function end3(){
-		json.oP11Bg4[0].className='p11Bg4  animated  fadeInRightBig';
+		json.oP11Bg4[0].className=' p11Bg4 animated  fadeIn';//'p11Bg4  animated  fadeInRightBig';
 		json.oP11Bg4[0].addEventListener('webkitAnimationEnd', end4);
 	}
 	function end4(){
-		json.oP11Bg5[0].className='p11Bg5 animated  fadeInUpBig ';
+		json.oP11Bg5[0].className=' p11Bg5 animated  fadeIn';//'p11Bg5 animated  fadeInUpBig ';
 		json.oP11Bg5[0].addEventListener('webkitAnimationEnd', end5);
 	}
 	function end5(){
@@ -662,7 +662,6 @@ function p11ToP12 (json){
 	json.oP12Bg2.css({
 		transition:'1s all ease',
 		webkitTransition:'1s all ease 3.8s',
-		transform: 'scale(1)',
 		opacity:'1'
 	})
 	json.oP12Bg3.css({
@@ -679,44 +678,54 @@ function p12ToP13 (json){
 		transform:'scale(1)',
 		webkitTransform:'scale(1)',
 	});
+	/*
 	json.oP13Bg1[0].addEventListener('webkitTransitionEnd', end);
 	function end(){
+	*/
 		json.oP13Bg2.css({
-			webkitTransition:'1s all ease',
-			transition:'1s all ease',
+			webkitTransition:'1s all ease .5s',
+			transition:'1s all ease .5s',
 			transform:'scale(1)',
 			webkitTransform:'scale(1)',
 		});
+	/*
 		json.oP13Bg2[0].addEventListener('webkitTransitionEnd', end2);
 	}
 	function end2(){
+	*/
 		json.oP13Bg3.css({
-			webkitTransition:'1s all ease',
-			transition:'1s all ease',
+			webkitTransition:'1s all ease .8s',
+			transition:'1s all ease .8s',
 			transform:'scale(1)',
 			webkitTransform:'scale(1)',
 		});
+	/*
 		json.oP13Bg3[0].addEventListener('webkitTransitionEnd', end3);
 	}
 	function end3(){
+	*/
 		json.oP13Bg4.css({
-			webkitTransition:'1s all ease',
-			transition:'1s all ease',
+			webkitTransition:'1s all ease 1.2s',
+			transition:'1s all ease 1.2s',
 			transform:'scale(1)',
 			webkitTransform:'scale(1)',
 		});
+	/*
 		json.oP13Bg4[0].addEventListener('webkitTransitionEnd', end4);
 	}
 	function end4(){
+	*/
 		json.oP13Bg5.css({
-			webkitTransition:'1s all ease',
-			transition:'1s all ease',
+			webkitTransition:'1s all ease 1.6s',
+			transition:'1s all ease 1.6s',
 			transform:'scale(1)',
 			webkitTransform:'scale(1)',
 		});
+	
 		json.oP13Bg5[0].addEventListener('webkitTransitionEnd', end5);
-	}
+	
 	function end5(){
+	
 		json.oP13Bg6.css({
 			webkitTransition:'1s all ease',
 			transition:'1s all ease',
@@ -793,12 +802,12 @@ function p13ToP14(json){
 window.onload=function(){
 	var oM=$('#music'); 
 	//console.log(oM);
-	oM.css({'display':'none'});
+	//oM.css({'display':'none'});
 	oM[0].play();
 	oM[0].loop=true;
 }
 
-$(function(){
+Zepto(function(){
 	load(resource,
 		function(){
 
@@ -949,6 +958,13 @@ $(function(){
 		//是否是第一次进入第十三页
 		var toP13count='13';
 
+		//阻止默认事件
+		$(document).on('touchstart',touchstar);
+
+		function touchstar(ev){
+		    ev.preventDefault();
+		}		
+
 		oLogo.css({
 			transition:'3s all ease',
 			transform:'scale(1)',
@@ -1025,9 +1041,6 @@ $(function(){
 						else{
 							swiper.unlockSwipes();
 						}
-						$('.page4').on('touchstart',function(ev){
-						    ev.preventDefault();
-						});
 						$(document).longTap(function(){
 							oP2yun.css({'display':'none'});
 							oLongTapBg[0].className='longTapBg animated fadeIn';
@@ -1232,9 +1245,11 @@ $(function(){
 						else{
 							swiper.unlockSwipes();
 						}
+						/*
 						$('.page13').on('touchstart',function(ev){
 						    ev.preventDefault();
 						});
+						*/
 						$(document).longTap(function(){
 							oLongTapBg2[0].className='longTapBg2 animated fadeIn';
 							oLongTapBg2.css({'transform':'scale(20)'});
@@ -1297,6 +1312,7 @@ $(function(){
 					break;
 					case 1:
 						activePage=15;
+						$(document).off('touchstart', touchstar);
 					break;
 				}
 				if(activePage==15){

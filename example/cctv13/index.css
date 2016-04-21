@@ -1220,8 +1220,6 @@ body {
 	transform: scale(1);
 	opacity:1;
 	*/
-	transform: scale(0);
-	-webkit-transform:scale(0);
 	opacity: 0;
 	background: url(./images/p12Bg2-640-760.png);
 	background-size: cover;
