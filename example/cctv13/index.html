@@ -18,8 +18,8 @@
 	};
 })(window,document);
 </script>
-<link rel="stylesheet" href="animate.css">
-<link rel="stylesheet" href="swiper.min.css"/>
+<link rel="stylesheet" href="./css/animate.css">
+<link rel="stylesheet" href="./css/swiper.min.css"/>
 <link rel="stylesheet" href="index.css">
 </head>
 <body id="v1">
@@ -32,10 +32,13 @@
 			<span>0%</span>
 		</div>
 	</div>
-	<audio autoplay="autoplay" loop="loop" height="100" width="100">
-		<source src="bgMusic.mp3" type="audio/mp3" />
-		<embed height="100" width="100" src="bgMusic.mp3" />
+	<audio id="music" src="bgMusic.mp3" __autoplay="autoplay" controls></audio>
+	<!--
+	<audio autoplay="autoplay" src="bgMusic.mp3" loop="loop" >
+		<source src="bgMusic.mp3" type="audio/mp3" >
+		<embed src="bgMusic.mp3" type="audio/mp3" >
 	</audio>
+	-->
 	<div class="swiper-container swiper-container-v">
 		<div class="swiper-wrapper">
 <!-- 111111===============================第一页====================================== -->
@@ -272,8 +275,8 @@
 			</div>
 		</div>
 	</div>
-<script src="zepto.min.js"></script>
-<script src="swiper.min.js"></script>
+<script src="./js/zepto.min.js"></script>
+<script src="./js/swiper.min.js"></script>
 <script src="index.js"></script>
 </body>
 </html>

@@ -789,15 +789,6 @@ function p13ToP14(json){
 		});
 	}
 }
-
-window.onload=function(){
-	var oM=$('#music'); 
-	//console.log(oM);
-	oM.css({'display':'none'});
-	oM[0].play();
-	oM[0].loop=true;
-}
-
 $(function(){
 	load(resource,
 		function(){
@@ -805,6 +796,12 @@ $(function(){
 		},
 		function(){
 		//音乐
+		var oM=$('#music'); 
+
+		oM.onload=function(){
+			alert(1);
+		}
+
 		//oA.setattribute('loop','loop');
 		var oPW=$('.titleW'),  			//全局标题
 		
