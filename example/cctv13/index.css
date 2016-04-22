@@ -7,7 +7,7 @@ html, body {
 a{text-decoration: none;}
 body {
 	background: #eee;
-	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-family: 'zns';
 	font-size: 14px;
 	color:#000;
 	margin: 0;
@@ -1465,6 +1465,8 @@ body {
 	height:1rem;
 	top:82%;
 	left:50%;
+	opacity: 0;
+	transform: translate3d(0, 30px, 0);
 	margin-left:-2.35rem;
 }
 .p15Bg2{
@@ -1473,6 +1475,7 @@ body {
 	height:12.5rem;
 	top:15.5%;
 	left:0;
+	opacity: 0;
 	background: url(./images/p15bg1-640-500.png) no-repeat;
 	background-size: cover;
 }
@@ -1483,6 +1486,7 @@ body {
 	font-size: 1.25rem;
 	text-align: center;
 	top:39.4%;
+	opacity: 0;
 }
 .p15a1{
 	position: absolute;
@@ -1493,6 +1497,7 @@ body {
 	top:50%;
 	left:50%;
 	margin-left:-4rem;
+	opacity: 0;
 }
 .p15a2{
 	position: absolute;
@@ -1503,6 +1508,7 @@ body {
 	top:56%;
 	left:50%;
 	margin-left:-4rem;
+	opacity: 0;
 }
 
 

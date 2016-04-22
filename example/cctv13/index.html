@@ -11,6 +11,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="screen-orientation" content="portrait">
 <meta name="x5-orientation" content="portrait">
+<style>
+@font-face{
+	font-family:'zns';
+	src:url('./font/方正清刻本悦宋简体.ttf');
+}
+</style>
 <script>
 (function(win,doc){
 	win.onload=win.onresize=function(){
@@ -21,6 +27,7 @@
 <link rel="stylesheet" href="./css/animate.css">
 <link rel="stylesheet" href="./css/swiper.min.css"/>
 <link rel="stylesheet" href="index.css">
+
 </head>
 <body id="v1">
 	<p class="titleW"></p>
@@ -32,7 +39,10 @@
 			<span>0%</span>
 		</div>
 	</div>
-	<audio id="music" src="bgMusic.mp3" __autoplay="autoplay" style="display: none" controls></audio>
+	<audio id="music"  style="display: none" controls>
+		<source src="bgMusic.ogg" type="audio/ogg">	
+		<source src="bgMusic.mp3" type="audio/mpeg">
+	</audio>
 	<!--
 	<audio autoplay="autoplay" src="bgMusic.mp3" loop="loop" >
 		<source src="bgMusic.mp3" type="audio/mp3" >
@@ -44,7 +54,7 @@
 <!-- 111111===============================第一页====================================== -->
 			<div class="swiper-slide page1">
 				<div class="logo"></div>
-				<p class="titleP1">伟大的时代<br>缔造伟大的工程</p>
+				<p class="titleP1" >伟大的时代<br>缔造伟大的工程</p>
 				<div class="page1Top"></div>
 			</div>
 			<div class="swiper-slide" id="h1">
@@ -54,9 +64,9 @@
 						<div class="swiper-slide page2">
 
 							<div class="page2Bg"><div></div></div>
-							<p class="titleP2">伟大的时代<br>缔造伟大的工程</p>
+							<p class="titleP2" >伟大的时代<br>缔造伟大的工程</p>
 							<div class="txtWall">
-								<p class="page2P1">长城</p>
+								<p class="page2P1" >长城</p>
 								<p class="page2P2"></p>
 							</div>
 							<div class="txtBg"></div>
@@ -216,8 +226,7 @@
 																<p class="p12txt">
 																	大科学工程<br>
 																	当代中国<br>
-																	献给未来的奇迹<br>
-																	··· ···
+																	献给未来的奇迹
 																</p>
 															</div>
 															<div class="swiper-slide" id="h3">

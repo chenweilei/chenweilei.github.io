@@ -85,9 +85,8 @@
 			'./images/top65-86.png',
 			'./images/page2Txt.png',
 
-			'./images/p15bg1-640-500.png',
+			'./images/p15bg1-640-500.png'
 
-			'bgMusic.mp3'
 		];
 
 //资源加载
@@ -799,10 +798,34 @@ function p13ToP14(json){
 	}
 }
 
+//第十四屏切换到十五屏效果
+function p14Top15(json){
+	json.oP15Bg2[0].className='p15Bg2 animated fadeIn';
+
+	json.oP15Bg2[0].addEventListener('webkitAnimationEnd', end);
+	function end(){
+		json.oP15More[0].className='p15more animated fadeInDownBig';
+		json.oP15More[0].addEventListener('webkitAnimationEnd', end2);
+	}
+	function end2(){
+		json.oP15A1[0].className='p15a1 animated fadeInLeftBig';
+		json.oP15A1[0].addEventListener('webkitAnimationEnd', end3);
+	}
+	function end3(){
+		json.oP15A2[0].className='p15a2 animated fadeInLeftBig';
+		json.oP15A2[0].addEventListener('webkitAnimationEnd', end4);
+	}
+	function end4(){
+		json.oP15Bg1.css({
+			transition:'1s all ease',
+			opacity:'1',
+			transform:'translate3d(0, 0, 0)'
+		});
+	}
+}
+
 window.onload=function(){
 	var oM=$('#music'); 
-	//console.log(oM);
-	//oM.css({'display':'none'});
 	oM[0].play();
 	oM[0].loop=true;
 }
@@ -946,6 +969,13 @@ Zepto(function(){
 			oP14Bg2=$('.p14Bg2'),
 			oP14Bg3=$('.p14Bg3'),
 			oP14txt=$('.p14txt'),
+
+		//第十五页元素获取
+			oP15Bg1=$('.p15Bg1'),
+			oP15Bg2=$('.p15Bg2'),
+			oP15More=$('.p15more'),
+			oP15A1=$('.p15a1'),
+			oP15A2=$('.p15a2'),
 
 		//当前页
 			activePage=1;
@@ -1312,6 +1342,13 @@ Zepto(function(){
 					break;
 					case 1:
 						activePage=15;
+						p14Top15({
+							oP15Bg1:oP15Bg1,
+							oP15Bg2:oP15Bg2,
+							oP15More:oP15More,
+							oP15A1:oP15A1,
+							oP15A2:oP15A2,
+						});
 						$(document).off('touchstart', touchstar);
 					break;
 				}
