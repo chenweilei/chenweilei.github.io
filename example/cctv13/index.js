@@ -1,7 +1,5 @@
 //图片资源
  resource=[	
- 			'bgMusic.mp3',
-
  			'./images/bg1.jpg',
 			'./images/bg2.jpg',
 			'./images/bg3.jpg',
@@ -88,6 +86,7 @@
 			'./images/page2Txt.png',
 
 			'./images/p15bg1-640-500.png'
+
 		];
 
 //资源加载
@@ -825,6 +824,11 @@ function p14Top15(json){
 	}
 }
 
+window.onload=function(){
+	var oM=$('#music'); 
+	oM[0].play();
+	oM[0].loop=true;
+}
 
 Zepto(function(){
 	load(resource,
@@ -833,13 +837,6 @@ Zepto(function(){
 		},
 		function(){
 		//音乐
-		var oM=document.getElementById('music');
-		
-		oM.oncanplaythrough=function(){
-			oM.play();
-			oM.loop = true; //歌曲循环
-		}
-
 		//oA.setattribute('loop','loop');
 		var oPW=$('.titleW'),  			//全局标题
 		
