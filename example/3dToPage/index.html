@@ -1,0 +1,135 @@
+<!-- code by cwl -->    	
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.stage{
+		width:800px;
+		height:450px;
+		position: absolute;
+		top:50%;
+		left:50%;
+		margin-top:-225px;
+		margin-left:-400px;
+		background: #ccc;
+	}
+	.container{
+		width: 100%;
+		height:100%;
+		transform-style: preserve-3d;
+		position: relative;
+		background: url(./800-450mv0.jpg) no-repeat;
+	}
+	.left, .right{
+		width:400px;
+		height:450px;
+		position: absolute;
+		top:0;
+		right: 0;
+	}
+	.left{
+		z-index: 1;
+		background: url(./800-450mv1.jpg) no-repeat right;
+	}
+	.right{
+		z-index: 2;
+		backface-visibility:inherit;
+		transform-origin: left;
+		transform-style: preserve-3d;
+		transform: perspective(1200px) rotateY(0deg);
+	}
+	.ahead{
+		position: absolute;
+		top:0;
+		left:0;
+		z-index: 2;
+		width:100%;
+		height:100%;
+		backface-visibility: hidden;
+		background: url(./800-450mv0.jpg) no-repeat right;
+	}
+	.back{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		z-index: 1;
+		transform: scale(-1,1);
+		background: url(./800-450mv1.jpg) no-repeat left;
+	}
+	.btn{
+		width:100px;
+		height:100px;
+		position: absolute;
+		bottom:-120px;
+		left:50%;
+		margin-left:-50px;
+		background: #000;
+		font-size: 20px;
+		text-align: center;
+		line-height: 100px;
+		color: #fff;
+		border: 1px solid blue;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+</style>
+<script>
+	window.onload=function(){
+		var arr=['800-450mv0.jpg', '800-450mv1.jpg', '800-450mv2.jpg', '800-450mv3.jpg'];
+		var oBtn=document.querySelector('.btn');
+		var oCon=document.querySelector('.container');
+		var oR=document.querySelector('.right');
+		var oL=document.querySelector('.left');
+		var oA=document.querySelector('.ahead');
+		var oB=document.querySelector('.back');
+
+		var n=0;
+		var bReady=true;
+		oBtn.onclick=function(){
+			if(bReady){
+				star();
+				oR.style.webkitTransform='perspective(1200px) rotateY(-180deg)';
+				n++;
+				oR.addEventListener('webkitTransitionEnd', end);
+			}
+			bReady=false;
+		}
+		function end(){
+			clear();
+			oR.style.webkitTransform='perspective(1200px) rotateY(0deg)';
+			oA.style.backgroundImage='url(./'+arr[n%3]+')';
+			oCon.style.backgroundImage='url(./'+arr[n%3]+')';
+			oL.style.backgroundImage='url(./'+arr[(n+1)%3]+')';
+			oB.style.backgroundImage='url(./'+arr[(n+1)%3]+')';
+			oR.removeEventListener('webkitTransitionEnd', end, false);
+			bReady=true;
+		}
+		function star(){
+			oR.style.transition='1s all ease';
+		}
+		function clear(){
+			oR.style.transition='none';
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="stage">
+		<div class="container">
+			<div class="left"></div>
+			<div class="right">
+				<div class="ahead"></div>
+				<div class="back"></div>
+			</div>
+		</div>
+		<div class="btn">点击翻页</div>
+	</div>
+</body>
+</html>
