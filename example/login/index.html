@@ -1,0 +1,194 @@
+  	
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<style>
+	*{
+		padding:0;
+		margin:0;
+	}
+	.stage{
+		display: none;
+		transform: scale(20);
+		opacity: 0;
+		width:400px;
+		height:300px;
+		position: absolute;
+		top:50%;
+		left:50%;
+		margin-top: -150px;
+		margin-left: -200px;
+	}
+	.container, .login, .reg{
+		width:100%;
+		height:100%;
+		position: absolute;
+		top:0;
+		left:0;
+	}
+	.container{
+		transform-style: preserve-3d;
+		transform: perspective(1200px) rotateY(0deg);
+	}
+	.login{
+		z-index: 2;
+		background: #33CCFF;
+		backface-visibility: hidden;
+	}
+	.reg{
+		z-index: 1;
+		background:#CC99FF;
+		transform: scaleX(-1);
+	}
+	.titL, .titR{
+		margin-top:20px;
+		width:100%;
+		height:50px;
+		line-height: 50px;
+		font-size: 30px;
+		text-align: center;
+	}
+	.user, .pass{
+		margin-top: 15px;
+		font-size: 20px;
+		width:100%;
+		height:50px;
+		text-align: center;
+		line-height: 50px;
+	}
+	.user input, .pass input{
+		outline: none;
+		border: none;
+		height:30px;
+		font-size: 16px;
+	}
+	.btnBox{
+		margin-top: 25px;
+		width: 100%;
+		height:40px;
+		text-align: center;
+		padding-top:10px;
+	}
+	.btnBox button{
+		outline: none;
+		cursor: pointer;
+		background: #FFFFCC;
+		border: none;
+		width:80px;
+		height:30px;
+		margin-left: 20px;
+		vertical-align: middle;
+		background: 
+	}
+	.close{
+		position: absolute;
+		width:30px;
+		height:30px;
+		right:0;
+		top:0;
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.btnOpen{
+		position: absolute;
+		top:30%;
+		left:50%;
+		border:1px solid #000;
+		margin-left: -60px;
+		width:120px;
+		height:30px;
+		line-height: 30px;
+		font-size: 14px;
+		text-align: center;
+		cursor: pointer;
+	}
+</style>
+<script>
+window.onload=function(){
+	var oStage=document.querySelector('.stage');
+	var oCon=document.querySelector('.container');
+	var aBtnL=document.querySelectorAll('.btnLogin');
+	var aBtnR=document.querySelectorAll('.btnReg');
+	var oOpen=document.querySelector('.btnOpen');
+	var aClose=document.querySelectorAll('.close');
+
+	oOpen.onclick=function(){
+		oStage.style.display='block';
+		setTimeout(function(){
+			oStage.style.transition='.3s all cubic-bezier(0.25, 0.1, 0.43, 1.28)';
+			oStage.style.transform='scale(1)';
+			oStage.style.opacity='1';
+		},0);
+	}
+
+	for(var i=0; i<aClose.length; i++){
+		aClose[i].onclick=function(){
+			setTimeout(function(){
+				oStage.style.transition='.3s all ease';
+				oStage.style.transform='scale(20)';
+				oStage.style.opacity='0';
+			},0);
+			oStage.addEventListener('webkitTransitionEnd', end, false);
+		}
+	}
+
+	for(var i=0; i<aBtnR.length; i++){
+		aBtnR[i].onclick=function(){
+			setTimeout(function(){
+				oCon.style.transition='.3s all cubic-bezier(0.25, 0.1, 0.59, 1.5)';
+				oCon.style.transform='perspective(1200px) rotateY(-180deg)';
+			},0);
+		}
+		aBtnL[i].onclick=function(){
+			setTimeout(function(){
+				oCon.style.transition='.3s all cubic-bezier(0.25, 0.1, 0.59, 1.5)';
+				oCon.style.transform='perspective(1200px) rotateY(0deg)';
+			},0);
+		}
+	}
+
+	function end(ev){
+		oStage.style.display='none';
+		oCon.style.transform='rotateY(0deg)';
+		oStage.removeEventListener('webkitTransitionEnd', end, false);
+	}
+}
+</script>
+</head>
+<body>
+	<div class="stage">
+		<div class="container">
+			<div class="login">
+				<div class="titL">Login</div>
+				<div class="user">
+					username:<input type="text" name="username"><br>
+				</div>
+				<div class="pass">
+					password:<input type="password" name="password">
+				</div>
+				<div class="btnBox">
+					<button class="btnLogin">登陆</button><button class="btnReg">注册</button>
+				</div>
+				<div class="close">×</div>
+			</div>
+			<div class="reg">
+				<div class="titR">Register</div>
+				<div class="user">
+					username:<input type="text" name="username" value=""><br>
+				</div>
+				<div class="pass">
+					password:<input type="password" name="password" value="">
+				</div>
+				<div class="btnBox">
+					<button class="btnLogin">登陆</button><button class="btnReg">注册</button>
+				</div>
+				<div class="close">×</div>
+			</div>
+		</div>
+	</div>
+	<div class="btnOpen">打开登录框</div>
+</body>
+</html>
