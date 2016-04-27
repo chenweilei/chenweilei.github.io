@@ -1,0 +1,153 @@
+<!-- code by cwl -->    	
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<style>
+	body, html{
+		overflow: hidden;
+		width:100%;
+		height:100%;
+	}
+	body{
+		background: #000;
+	}
+	*{
+		padding:0;
+		margin:0;
+	}
+	ul, li{
+		list-style: none;
+	}
+	.stage{
+		width:500px;
+		height: 400px;
+		position: absolute;
+		top:50%;
+		left:50%;
+		margin-top:-200px;
+		margin-left: -250px;
+	}
+	.con, ul, li{
+		width: 100%;
+		height:100%;
+		position: absolute;
+		top:0;
+		left:0;
+	}
+	img{
+		border-radius: 10px;
+	}
+	ul{
+		transform-style: preserve-3d;
+		transform: perspective(1200px);
+	}
+	li{
+		transition: .8s all ease;
+		border-radius: 10px;
+		box-shadow: 0 0 50px 5px #fff;
+		opacity: 0;
+		transform:translateX(0px) rotateY(0deg);
+	}
+	.cur{
+		opacity: 1;
+		transform:translateX(0px) rotateY(0deg);
+	}
+	.l1{
+		opacity: 0.8;
+		transform:translateX(-385px) rotateY(60deg) ;
+	}
+	.l2{
+		opacity: 0.1;
+		transform:translateX(-600px) rotateY(50deg) ;
+	}
+	.r1{
+		opacity: 0.8;
+		transform:translateX(385px) rotateY(-60deg) ;
+	}
+	.r2{
+		opacity: 0.1;
+		transform:translateX(600px) rotateY(-50deg) ;
+	}
+	.btnL, .btnR{
+		width:100px;
+		height:50px;
+		position: absolute;
+		top:-30%;
+		background: #FFCCFF;
+		color: #9900FF;
+		font-size: 50px;
+		text-align: center;
+		line-height: 50px;
+		cursor: pointer;
+		border-radius: 5px;
+		box-shadow: 0 0 10px 5px #fff;
+	}
+	.btnL{
+		left:20%;
+	}
+	.btnR{
+		right:20%;
+	}
+</style>
+<script>
+window.onload=function(){
+	var aLi=document.querySelectorAll('.con li');
+	var oL=document.querySelector('.btnL');
+	var oR=document.querySelector('.btnR');
+
+	var aClassName=['', 'l2', 'l1', 'cur', 'r1', 'r2', ''];
+	var bReady=true;
+	oL.onclick=function(){
+		if(bReady){
+			aClassName.unshift(aClassName.pop());
+			for(var i=0; i<aLi.length; i++){
+				aLi[i].className=aClassName[i];
+				aLi[i].addEventListener('webkitTransitionEnd', end, false);
+			}
+			//console.log(aClassName)
+		}
+		bReady=false;
+	}
+
+	oR.onclick=function(){
+		if (bReady) {
+			aClassName.push(aClassName.shift());
+			for(var i=0; i<aLi.length; i++){
+				aLi[i].className=aClassName[i];
+				aLi[i].addEventListener('webkitTransitionEnd', end, false);
+			}
+			//console.log(aClassName)
+		}
+		bReady=false;
+	}
+	document.onmousedown=function(){
+		return false;
+	}
+	function end(){
+		bReady=true;
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].removeEventListener('webkitTransitionEnd', end, false);
+		}
+	}
+}
+</script>
+</head>
+<body>
+	<div class="stage">
+		<div class="con">
+			<div class="btnL">←</div>
+			<div class="btnR">→</div>
+			<ul>
+				<li><img src="./500-400-1.jpg" alt=""></li>
+				<li class="l2"><img src="./500-400-2.jpg" alt=""></li>
+				<li class="l1"><img src="./500-400-3.jpg" alt=""></li>
+				<li class="cur"><img src="./500-400-4.jpg" alt=""></li>
+				<li class="r1"><img src="./500-400-5.jpg" alt=""></li>
+				<li class="r2"><img src="./500-400-6.jpg" alt=""></li>
+				<li><img src="./500-400-7.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
