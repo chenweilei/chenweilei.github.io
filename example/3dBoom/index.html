@@ -30,7 +30,7 @@
 		transform-style: preserve-3d;
 		top:0;
 		left:0;
-		background: url(./images/youhua1_02.jpg) no-repeat;
+		background: url(http://chenweilei.github.io/example/3dBoom/images/youhua1_02.jpg) no-repeat;
 		background-size: cover;
 	}
 	.btn{
@@ -71,7 +71,7 @@ window.onload=function(){
 			oSpan.style.height=h+'px';
 			oSpan.style.left=left+'px';
 			oSpan.style.top=top+'px';
-			oSpan.style.background='url(./images/youhua1_01.jpg) no-repeat';
+			oSpan.style.background='url(http://chenweilei.github.io/example/3dBoom/images/youhua1_01.jpg) no-repeat';
 			oSpan.style.backgroundSize='800px 600px';
 			oSpan.style.backgroundPosition=-left+'px '+-top+'px';
 			oSpan.style.opacity='1';
@@ -100,9 +100,9 @@ window.onload=function(){
 			aSpan[i].style.transition='none';
 			aSpan[i].style.opacity='1';
 			aSpan[i].style.transform='perspective(1200px) rotateZ(0deg) rotateY(0deg) rotateX(0deg) translate3d(0px, 0px, 0px)';
-			aSpan[i].style.backgroundImage='url(./images/youhua1_0'+(n%3+1)+'.jpg)';
+			aSpan[i].style.backgroundImage='url(http://chenweilei.github.io/example/3dBoom/images/youhua1_0'+(n%3+1)+'.jpg)';
 		}
-		oCon.style.backgroundImage='url(./images/youhua1_0'+((n+1)%3+1)+'.jpg)';
+		oCon.style.backgroundImage='url(http://chenweilei.github.io/example/3dBoom/images/youhua1_0'+((n+1)%3+1)+'.jpg)';
 		aSpan[0].removeEventListener('webkitTransitionEnd', end, false);
 		bReady=true;
 	}
