@@ -1,10 +1,10 @@
 
 @font-face {font-family: 'webfont';
-  src: url('//at.alicdn.com/t/4bv7agqml9zzolxr.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/4bv7agqml9zzolxr.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/4bv7agqml9zzolxr.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/4bv7agqml9zzolxr.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/4bv7agqml9zzolxr.svg#思源黑体-粗') format('svg'); /* iOS 4.1- */
+  src: url('//at.alicdn.com/t/4bv7agqml9zzolxr.eot');
+  src: url('//at.alicdn.com/t/4bv7agqml9zzolxr.eot?#iefix') format('embedded-opentype'), 
+  url('//at.alicdn.com/t/4bv7agqml9zzolxr.woff') format('woff'), 
+  url('//at.alicdn.com/t/4bv7agqml9zzolxr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/4bv7agqml9zzolxr.svg#思源黑体-粗') format('svg'); 
 }
 *{
 	padding:0;
@@ -342,6 +342,7 @@ body{
 	margin-left: 3px;
 	overflow: hidden;
 	font-size: 0.65rem;
+	font-weight: bold;
 	line-height: 0.8rem;
 	margin-bottom:0.5rem;
 	padding-left:0.8rem;
