@@ -64,6 +64,7 @@ body{
 	left:0;
 	top:-3rem;
 	color:#fff;
+	font-family: monospace;
 	font-size: 1.5rem;
 }
 .loadBar i{
