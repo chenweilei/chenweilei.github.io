@@ -9,13 +9,15 @@
 			oStarBtn=$('#but'),
 			oPage2=$('#bookBg'),
 			aDd=$('#bookBg dd'),
+			oLoad=$('.loadBar i'),
+			oLoadBar=$('.loadBar span'),
 			aT=$('.t1');
 
 			//总得分
 			var total=0;
 
-			//第一页
-			setTimeout(function(){
+			CWLload('data-src', 'bg', oLoad, oLoadBar, function(){
+				//alert(1);
 				oTit.css({
 					transition : '1s all ease ', 
 					webkitTransition : '1s all ease ', 
@@ -23,7 +25,9 @@
 					transform : 'translate3d(0px, 0px, 0px)'
 				})
 				oTit.on('webkitTransitionEnd', end1);
-			},2000);
+			});
+
+			//第一页
 
 			function end1(){
 				oP1.css({

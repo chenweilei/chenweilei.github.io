@@ -20,21 +20,28 @@
 	</script>
 </head>
 <body>
+<!--loadIng-->
+	<div class="load">
+		<div class="loadBar">
+			<i></i>
+			<span>0%</span>
+		</div>
+	</div>
 <!--第一页-->
-	<div id="mainBg" >
-		<h2 id="mainTitle"></h2>
-			<p id="people1"></p>
-			<p id="people2"></p>
-			<p id="people3"></p>
-			<p id="people4"></p>
- 		<a id="but" href="javascript:;">开始答题吧<span id="open"></span></a>
+	<div id="mainBg" data-src="./images/bg-640-1040.jpg">
+		<h2 id="mainTitle" data-src="./images/title-484-308.png"></h2>
+			<p id="people1" data-src="./images/people1-274-200.png"></p>
+			<p id="people2"  data-src="./images/people2-216-226.png"></p>
+			<p id="people3" data-src="./images/people3-192-206.png"></p>
+			<p id="people4" data-src="./images/people4-218-346.png"></p>
+ 		<a id="but" href="javascript:;">开始答题吧<span id="open" data-src="./images/open-96-86.png"></span></a>
 	</div>
 <!--第二页-->
-	<div id="contBg">
+	<div id="contBg" data-src="./images/bg2.jpg">
 		<div id="contTitle">
-			<p id="contDi"></p>
-			<p id="contNum"></p>
-			<p id="contTi"></p>
+			<p id="contDi" data-src="./images/di-74-74.jpg"></p>
+			<p id="contNum" data-src="./images/two-74-74.jpg"></p>
+			<p id="contTi" data-src="./images/ti-74-74.jpg"></p>
 		</div>
 		<div id="bookBg">
 		<!--第一题-->
@@ -156,8 +163,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
 	<script src="./js/zepto.min.js"></script>
+	<script src="./js/CWLload.js"></script>
 	<script src="./js/index.js"></script>
 </body>
 </html>
