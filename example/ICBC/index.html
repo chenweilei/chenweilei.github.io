@@ -193,34 +193,31 @@
 	   * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
 	   */
 
-	var data={};
 	$.ajax({
 		url: './index.php',
 		type: 'GET',
-		success: function(json){
-			data.appId=json.appId;
-			data.timestamp=json.timestamp;
-			data.nonceStr=json.nonceStr;
-			data.signature=json.signature;
+		success: function(str){
+			var json=JSON.parse(str)
+			//alert(JSON.parse(str).appId);
+						
+			wx.config({
+				debug: true,
+				appId: json.appId,
+				timestamp:json.timestamp ,
+				nonceStr:json.nonceStr ,
+				signature:json.signature,
+				jsApiList: [
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'onMenuShareQQ',
+					'onMenuShareWeibo',
+					'onMenuShareQZone'
+				]
+			});
 		}
 	});
-	
-	wx.config({
-		debug: true,
-		appId: data.appId,
-		timestamp:data.timestamp ,
-		nonceStr:data.nonceStr ,
-		signature:data.signature ,
-		jsApiList: [
-		// 所有要调用的 API 都要加到这个列表中
-			onMenuShareTimeline,
-			onMenuShareAppMessage,
-			onMenuShareQQ,
-			onMenuShareWeibo,
-			onMenuShareQZone,
-		]
-	});
 	wx.ready(function () {
+		//alert('ready');
 		wx.onMenuShareTimeline({
 			title: '工行一分钟',
 			link: 'http://chenweilei.github.io/example/ICBC/',
