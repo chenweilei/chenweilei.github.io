@@ -7,7 +7,8 @@
 			oP3=$('#people3'),
 			oP4=$('#people4'),
 			oStarBtn=$('#but'),
-			oPage2=$('.contBg');
+			oPage2=$('.contBg'),
+			oTNum=$('.tNum');
 			oP2T=$('#bookBg'),
 			aDd=$('#bookBg dd'),
 			oLoad=$('.loadBar i'),
@@ -99,6 +100,10 @@
 					}
 					else{
 						$($(this).parents()[2]).next().addClass('active');
+						oTNum.css({
+							webkitTransform: 'translate3d(0rem, -'+parseInt($($(this).parents()[2]).attr('data-T'))*1.85+'rem, 0rem)',
+							transform: 'translate3d(0rem, -'+parseInt($($(this).parents()[2]).attr('data-T'))*1.85+'rem, 0rem)'
+						});
 					}
 				});
 			});

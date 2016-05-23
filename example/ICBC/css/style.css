@@ -245,7 +245,7 @@ body{
 	left:50%;
 	margin-left: -2.75rem;
 	width:5.5rem;
-	height:1.85rem;
+	height:1.86rem;
 }
 .contDi{
 	width:1.85rem;
@@ -271,6 +271,24 @@ body{
 	top:0;
 	left:1.85rem;
 	margin-left:-1px;
+	overflow: hidden;
+}
+.contNum .tNum{
+	-webkit-transform: translate3d(0rem, 0rem, 0rem);
+	transform: translate3d(0rem, 0rem, 0rem);
+	position: absolute;
+	top:0;
+	left:0;
+	width: 1.85rem;
+	height:16.65rem;
+	-webkit-transition: 1s all ease;
+	transition: 1s all ease;
+}
+.contNum .tNum li{
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height:1.85rem;
 }
 .contTi{
 	width:1.85rem;
