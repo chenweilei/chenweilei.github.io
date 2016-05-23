@@ -1,13 +1,14 @@
 (function(win, doc){
 	$(function(){
 		var oTit=$('#mainTitle'),
-			oPage1=$('#mainBg');
+			oPage1=$('.mainBg');
 			oP1=$('#people1'),
 			oP2=$('#people2'),
 			oP3=$('#people3'),
 			oP4=$('#people4'),
 			oStarBtn=$('#but'),
-			oPage2=$('#bookBg'),
+			oPage2=$('.contBg');
+			oP2T=$('#bookBg'),
 			aDd=$('#bookBg dd'),
 			oLoad=$('.loadBar i'),
 			oLoadBar=$('.loadBar span'),
@@ -18,6 +19,15 @@
 
 			CWLload('data-src', 'bg', oLoad, oLoadBar, function(){
 				//alert(1);
+				oPage1.css({
+					opacity:1
+				});
+				oPage1.on('webkitTransitionEnd', p1Show);
+			});
+
+			//第一页
+
+			function p1Show(){
 				oTit.css({
 					transition : '1s all ease ', 
 					webkitTransition : '1s all ease ', 
@@ -25,9 +35,8 @@
 					transform : 'translate3d(0px, 0px, 0px)'
 				})
 				oTit.on('webkitTransitionEnd', end1);
-			});
-
-			//第一页
+				oPage1.off('webkitTransitionEnd', p1Show);
+			}
 
 			function end1(){
 				oP1.css({
@@ -72,11 +81,10 @@
 
 			//点击开始答题按钮
 			oStarBtn.tap(function(){
-				oPage1.css({
-					webkitTransition : '1s all ease',
-					transition : '1s all ease'
-				});
 				oPage1.addClass('getOut');
+				oPage2.css({
+					opacity:1
+				});
 			});
 
 			aDd.each(function(index, item){
