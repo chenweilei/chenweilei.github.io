@@ -194,13 +194,13 @@
 	   */
 
 	$.ajax({
-		url: './index.php',
+		url: './wxConfig.php',
 		type: 'POST',
 		success: function(str){
-			console.log(str);
+			//console.log(str);
 			var json=JSON.parse(str) || {};
 			//alert(JSON.parse(str).appId);
-						
+			//console.log(json);
 			wx.config({
 				debug: true,
 				appId: json.appId,
