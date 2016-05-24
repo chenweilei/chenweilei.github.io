@@ -195,9 +195,10 @@
 
 	$.ajax({
 		url: './index.php',
-		type: 'GET',
+		type: 'POST',
 		success: function(str){
-			var json=JSON.parse(str)
+			console.log(str);
+			var json=JSON.parse(str) || {};
 			//alert(JSON.parse(str).appId);
 						
 			wx.config({
@@ -223,7 +224,7 @@
 			link: 'http://chenweilei.github.io/example/ICBC/',
 			imgUrl: './images/people2-216-226.png',
 			success: function () { 
-			    alert('分享成功');
+			    alert('分享成功ssssssq');
 			},
 			cancel: function () { 
 			    alert('分享失败');
