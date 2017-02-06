@@ -4,7 +4,7 @@
 	author: 'willyChen'
 */
 
-window.onload = function(){
+
 	var loadBox = document.querySelectorAll('#load span')[0];
 	var showFps = document.querySelector('#showfps');
 	var canvas = document.querySelector('#canvas');
@@ -590,4 +590,3 @@ window.onload = function(){
 
 		ctx.restore();
 	}
-}
