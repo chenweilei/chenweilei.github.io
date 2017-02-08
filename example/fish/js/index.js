@@ -60,6 +60,7 @@
 	}, function(aCourse){
 		//console.log(aCourse)
 
+
 		//画背景
 		if(findCourse(aCourse, 'bg')){
 			ctx.drawImage(findCourse(aCourse, 'bg'), 0, 0)
