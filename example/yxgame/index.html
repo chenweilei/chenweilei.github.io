@@ -99,7 +99,7 @@
 		//游戏得分
 		var Mark = 0;
 		//游戏总时间  单位s
-		var totalTime;
+		var totalTime = 30;
 		//游戏当前的剩余时间
 		var curTime = 0;
 		//X, Y, 缩放倍数
@@ -123,8 +123,6 @@
 			loadingBox.style.display = 'none';	
 			oBg.style.backgroundImage = "url(./images/"+ Resources.bg +")";
 			oBgBottom.src = "./images/"+ Resources.bottom_bg;
-
-			totalTime = 30;
 
 			//画背景
 			// ctx.drawImage(res.bg, 0,0, w, 1600);
