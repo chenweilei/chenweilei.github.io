@@ -59,7 +59,6 @@
 	<script src="./yx.js"></script>
 
 	<script type="text/javascript">
-	window.onload = function(){
 		var loadingBox = document.querySelector('#loading');
 		var canvas = document.querySelector('#canvas');
 		var oBg = document.querySelector('.game_bg');
@@ -107,6 +106,9 @@
 		var canvasScaleX = (canvas.width/winW).toFixed(5);
 		var canvasScaleY = (canvas.height/winH).toFixed(5);
 
+		//加载状态
+		var status = 'loading';
+
 		//图片资源
 		var Resources = {
 			bg: 'bg1.jpg',
@@ -121,7 +123,8 @@
 
 		}, function(res){
 			console.log(res)
-			alert(1)
+			status = 'end';
+
 			loadingBox.style.display = 'none';	
 			oBg.style.backgroundImage = "url(./images/"+ Resources.bg +")";
 			oBgBottom.src = "./images/"+ Resources.bottom_bg;
@@ -312,8 +315,9 @@
 				}
 			}
 
-			timer = requestAnimationFrame(animate);
-
+			if(status != 'loading'){
+				timer = requestAnimationFrame(animate);
+			}
 			//计算帧数率
 			function calculateFps(now) {
 			    var fps = 1000 / (now - lastTime);
@@ -346,7 +350,6 @@
 			}
 
 		})		
-	}
 	</script>
 </body>
 </html>
