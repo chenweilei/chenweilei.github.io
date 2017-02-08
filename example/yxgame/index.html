@@ -59,6 +59,7 @@
 	<script src="./yx.js"></script>
 
 	<script type="text/javascript">
+	window.onload = function(){
 		var loadingBox = document.querySelector('#loading');
 		var canvas = document.querySelector('#canvas');
 		var oBg = document.querySelector('.game_bg');
@@ -310,6 +311,7 @@
 				}
 			}
 
+			timer = requestAnimationFrame(animate);
 
 			//计算帧数率
 			function calculateFps(now) {
@@ -342,7 +344,8 @@
 				ctx.restore()
 			}
 
-		})
+		})		
+	}
 	</script>
 </body>
 </html>
