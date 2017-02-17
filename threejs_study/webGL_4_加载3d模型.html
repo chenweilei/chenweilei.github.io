@@ -2,12 +2,10 @@
 <html> 
 <head> 
 	<meta charset="utf-8"> 
-	<title>webGL_运动</title>
+	<title>webGL_载入3d模型</title>
 	<meta name="description" content="网页描述" />
 	<meta name="Keywords" content="关键字" />
-	<script src="./canvas_book.js"></script>
-	<script src="./three.min.js"></script>
-	<script src="./clock.js"></script>
+
 </head>
 	<style>
 		*{
@@ -27,6 +25,9 @@
 <body>
 	<div id="stage"></div>
 
+	<script src="./canvas_book.js"></script>
+	<script src="./three.min.js"></script>
+	<script src="VTKLoader.js"></script>
 	<script>
 		var oStage = document.querySelector('#stage');
 		var stageW = oStage.offsetWidth;
@@ -79,11 +80,11 @@
 				this.render.setClearColor(0xffffff, 1)
 			},
 			initCamera: function(){
-				this.camera = new THREE.PerspectiveCamera(45, this.w/this.h, 1, 10000);
+				this.camera = new THREE.PerspectiveCamera(20, this.w/this.h, 1, 10000);
 				//设置相机位置
 				this.camera.position.x = 0;
 				this.camera.position.y = 0;
-				this.camera.position.z = 800;
+				this.camera.position.z = 100;
 				//设置相机方向
 				this.camera.up.x = 0;
 				this.camera.up.y = 1;
@@ -110,7 +111,7 @@
 //				this.scene.add(this.lights);
 
 				//方向光源
-				this.lights = new THREE.DirectionalLight(0xeeeeee);
+				this.lights = new THREE.DirectionalLight(0xffffff);
 				this.lights.position.set( 0, 0, 1 );
 				this.scene.add(this.lights);
 			},
@@ -131,38 +132,30 @@
 
 		var webgl = new Webgl(oStage, stageW, stageH);
 
-		var geometry = new THREE.BoxGeometry(300, 300, 300);
-		//设置纹理坐标
-//		geometry.vertices[0].uv = new THREE.Vector2(0, 0);
-//		geometry.vertices[1].uv = new THREE.Vector2(1, 0);
-//		geometry.vertices[2].uv = new THREE.Vector2(1, 1);
-//		geometry.vertices[3].uv = new THREE.Vector2(0, 1);
+		var loader = new THREE.VTKLoader();
+		var loadTextTure =  new THREE.TextureLoader();
+		var textture =	loadTextTure.load('./7.jpg')
+		var material = new THREE.MeshLambertMaterial( { color: 0xffffff, side: THREE.DoubleSide , map: textture} );
 
-		var texttute = THREE.Texture(canvas);
-		console.log(texttute)
-		var material = new THREE.MeshLambertMaterial({map: texttute});
-
-		var obj1 = new THREE.Mesh(
-				geometry,
-				material
-		);
-		obj1.position.set(0,0,0);
-
-		webgl.aObj.push(obj1);
-		webgl.start();
+		loader.load( "bunny.vtk", function ( geometry ) {
+			geometry.center();
+			geometry.computeVertexNormals();
+			var mesh = new THREE.Mesh( geometry, material );
+			mesh.position.set( 0, 0, 0 );
+			mesh.scale.multiplyScalar( 100 );
+			webgl.aObj.push(mesh);
+			webgl.start();
+			timer = requestAnimationFrame(animate);
+		} );
 
 		var n = 0;
 		function animate(){
 			n+=1/60;
-
 			webgl.render.render(webgl.scene, webgl.camera);
-
 			timer = requestAnimationFrame(animate);
-			texture.needsUpdate = true;
-
 			for(var i=0; i<webgl.aObj.length; i++){
 				//webgl.aObj[i].position.x += n;
-				webgl.aObj[i].rotateX(degToRad(n%360));
+				//webgl.aObj[i].rotateX(degToRad(n%360));
 				if(webgl.aObj[i].position.x>=stageW/2){
 					webgl.aObj[i].position.x = stageW/2;
 					cancelAnimationFrame(timer)
@@ -175,7 +168,7 @@
 		}, 2000)
 
 
-		timer = requestAnimationFrame(animate);
+
 	</script>
 </body>
 </html>

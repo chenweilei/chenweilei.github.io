@@ -1,177 +1,177 @@
-<!doctype html>
-<html>
-<head>
-	<meta charset="utf-8">
+<!doctype html> 
+<html> 
+<head> 
+	<meta charset="utf-8"> 
 	<title>webGL_运动</title>
 	<meta name="description" content="网页描述" />
 	<meta name="Keywords" content="关键字" />
 
 </head>
-<style>
-	*{
-		padding: 0;
-		margin: 0;
-	}
-	html, body{
-		height: 100%;
-		overflow: hidden;
-	}
-	#stage{
-		width: 100%;
-		height: 100%;
-		background: #eee;
-	}
-</style>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html, body{
+			height: 100%;
+			overflow: hidden;
+		}
+		#stage{
+			width: 100%;
+			height: 100%;
+			background: #eee;
+		}
+	</style>
 <body>
-<div id="stage"></div>
+	<div id="stage"></div>
 
-<script src="./canvas_book.js"></script>
-<script src="./three.min.js"></script>
-<script src="./clock.js"></script>
-<script>
-	var oStage = document.querySelector('#stage');
-	var stageW = oStage.offsetWidth;
-	var stageH = oStage.offsetHeight;
-	var timer = null;
+	<script src="./canvas_book.js"></script>
+	<script src="./three.min.js"></script>
+	<script src="./clock.js"></script>
+	<script>
+		var oStage = document.querySelector('#stage');
+		var stageW = oStage.offsetWidth;
+		var stageH = oStage.offsetHeight;
+		var timer = null;
 
-	function Webgl(stage, w, h){
-		if(!stage)return;
-		this.stage = stage;
-		//宽高
-		this.w = w;
-		this.h = h;
-		//渲染器
-		this.render = null;
-		//场景
-		this.scene = null;
-		//照相机
-		this.camera = null;
-		//灯光
-		this.lights = null;
-		//物体对象
-		this.aObj = [];
-	}
+		function Webgl(stage, w, h){
+			if(!stage)return;
+			this.stage = stage;
+			//宽高
+			this.w = w;
+			this.h = h;
+			//渲染器
+			this.render = null;
+			//场景
+			this.scene = null;
+			//照相机
+			this.camera = null;
+			//灯光
+			this.lights = null;
+			//物体对象
+			this.aObj = [];
+		}
 
-	Webgl.prototype = {
-		//检测浏览器是否支持webGL
-		webglAvailable: function(){
-			try {
-				var canvas = document.createElement( 'canvas' );
-				return !!( window.WebGLRenderingContext && (
+		Webgl.prototype = {
+			//检测浏览器是否支持webGL
+			webglAvailable: function(){
+				try {
+					var canvas = document.createElement( 'canvas' );
+					return !!( window.WebGLRenderingContext && (
 						canvas.getContext( 'webgl' ) ||
 						canvas.getContext( 'experimental-webgl' ) )
-				);
-			} catch ( e ) {
-				return false;
-			}
-		},
-		initRender: function(){
-			if ( this.webglAvailable() ) {
-				this.render = new THREE.WebGLRenderer();
-			} else {
-				this.render = new THREE.CanvasRenderer();
-			}
-			//抗锯齿
-			this.render.antialias = true;
-			this.render.precision = "highp";
-			this.render.preserveDrawingBuffer = true,
-					this.render.setSize(this.w, this.h)
-			this.stage.appendChild(this.render.domElement)
-			this.render.setClearColor(0xffffff, 1)
-		},
-		initCamera: function(){
-			this.camera = new THREE.PerspectiveCamera(45, this.w/this.h, 1, 10000);
-			//设置相机位置
-			this.camera.position.x = 0;
-			this.camera.position.y = 0;
-			this.camera.position.z = 800;
-			//设置相机方向
-			this.camera.up.x = 0;
-			this.camera.up.y = 1;
-			this.camera.up.z = 0;
-			//设置相机焦点
-			this.camera.lookAt({
-				x: 0,
-				y: 0,
-				z: 0
-			})
-		},
-		initScene: function(){
-			this.scene = new THREE.Scene();
-		},
-		initLights: function(){
-			//环境光  加上环境光会使整体变亮
+					);
+				} catch ( e ) {
+					return false;
+				}
+			},
+			initRender: function(){
+				if ( this.webglAvailable() ) {
+					this.render = new THREE.WebGLRenderer();
+				} else {
+					this.render = new THREE.CanvasRenderer();
+				}
+				//抗锯齿
+				this.render.antialias = true;
+				this.render.precision = "highp";
+				this.render.preserveDrawingBuffer = true,
+				this.render.setSize(this.w, this.h)
+				this.stage.appendChild(this.render.domElement)
+				this.render.setClearColor(0xffffff, 1)
+			},
+			initCamera: function(){
+				this.camera = new THREE.PerspectiveCamera(45, this.w/this.h, 1, 10000);
+				//设置相机位置
+				this.camera.position.x = 400;
+				this.camera.position.y = 320;
+				this.camera.position.z = 800;
+				//设置相机方向
+				this.camera.up.x = 0;
+				this.camera.up.y = 1;
+				this.camera.up.z = 0;
+				//设置相机焦点
+				this.camera.lookAt({
+					x: 0,
+					y: 0,
+					z: 0
+				})
+			},
+			initScene: function(){
+				this.scene = new THREE.Scene();
+			},
+			initLights: function(){
+				//环境光  加上环境光会使整体变亮
 //				this.lights = new THREE.AmbientLight( 0x00ff00 );
 //				this.lights.position.set(100, 100, 100);
 //				this.scene.add(this.lights);
 
-			//点光源
-//				this.lights = new THREE.PointLight(0xff0000);
-//				this.lights.position.set( 0, 0, 300 );
+				//点光源
+				this.lights = new THREE.PointLight(0xffff00);
+				this.lights.position.set( 300, 300, 300 );
+				this.scene.add(this.lights);
+
+				//方向光源
+//				this.lights = new THREE.DirectionalLight(0xeeeeee);
+//				this.lights.position.set( 0, 0, 1 );
 //				this.scene.add(this.lights);
-
-			//方向光源
-			this.lights = new THREE.DirectionalLight(0xeeeeee);
-			this.lights.position.set( 0, 0, 1 );
-			this.scene.add(this.lights);
-		},
-		initObj: function(){
-			for(var i=0; i<this.aObj.length; i++){
-				console.log(this.aObj[i])
-				this.scene.add(this.aObj[i])
+			},
+			initObj: function(){
+				for(var i=0; i<this.aObj.length; i++){
+					console.log(this.aObj[i])
+					this.scene.add(this.aObj[i])
+				}
+			},
+			start: function(){
+				this.initRender();
+				this.initCamera();
+				this.initScene();
+				this.initLights();
+				this.initObj()
 			}
-		},
-		start: function(){
-			this.initRender();
-			this.initCamera();
-			this.initScene();
-			this.initLights();
-			this.initObj()
-		}
-	};
+		};
 
-	var webgl = new Webgl(oStage, stageW, stageH);
+		var webgl = new Webgl(oStage, stageW, stageH);
 
-	var geometry = new THREE.BoxGeometry(300, 300, 300);
-	//设置纹理坐标
-	//		geometry.vertices[0].uv = new THREE.Vector2(0, 0);
-	//		geometry.vertices[1].uv = new THREE.Vector2(1, 0);
-	//		geometry.vertices[2].uv = new THREE.Vector2(1, 1);
-	//		geometry.vertices[3].uv = new THREE.Vector2(0, 1);
-	//console.log(canvas
-	var texttute = new THREE.Texture(canvas);
-	var material = new THREE.MeshLambertMaterial({map: texttute, color: 0xffff00});
-	texttute.needsUpdate = true;
-	var obj1 = new THREE.Mesh(
-			geometry,
-			material
-	);
-	obj1.position.set(0,0,0);
-	webgl.aObj.push(obj1);
-	webgl.start();
-
-	var n = 0;
-	function animate(){
-		n+=1/60;
+		var geometry = new THREE.BoxGeometry(300, 300, 300);
+		//设置纹理坐标
+//		geometry.vertices[0].uv = new THREE.Vector2(0, 0);
+//		geometry.vertices[1].uv = new THREE.Vector2(1, 0);
+//		geometry.vertices[2].uv = new THREE.Vector2(1, 1);
+//		geometry.vertices[3].uv = new THREE.Vector2(0, 1);
+		//console.log(canvas
+		var texttute = new THREE.Texture(canvas);
+		var material = new THREE.MeshLambertMaterial({map: texttute, color: 0xffff00});
 		texttute.needsUpdate = true;
-		webgl.render.render(webgl.scene, webgl.camera);
-		timer = requestAnimationFrame(animate);
-		for(var i=0; i<webgl.aObj.length; i++){
-			//webgl.aObj[i].position.x += n;
-			webgl.aObj[i].rotateX(degToRad(n%360));
-			if(webgl.aObj[i].position.x>=stageW/2){
-				webgl.aObj[i].position.x = stageW/2;
-				cancelAnimationFrame(timer)
-				//alert('运动结束')
+		var obj1 = new THREE.Mesh(
+				geometry,
+				material
+		);
+		obj1.position.set(0,0,0);
+		webgl.aObj.push(obj1);
+		webgl.start();
+
+		var n = 0;
+		function animate(){
+			//n+=1/60;
+			texttute.needsUpdate = true;
+			webgl.render.render(webgl.scene, webgl.camera);
+			timer = requestAnimationFrame(animate);
+			for(var i=0; i<webgl.aObj.length; i++){
+				//webgl.aObj[i].position.x += n;
+				webgl.aObj[i].rotateX(degToRad(n%360));
+				if(webgl.aObj[i].position.x>=stageW/2){
+					webgl.aObj[i].position.x = stageW/2;
+					cancelAnimationFrame(timer)
+					//alert('运动结束')
+				}
 			}
 		}
-	}
-	setTimeout(function(){
-		cancelAnimationFrame(timer)
-	}, 2000)
+//		setTimeout(function(){
+//			cancelAnimationFrame(timer)
+//		}, 2000)
 
 
-	timer = requestAnimationFrame(animate);
-</script>
+		timer = requestAnimationFrame(animate);
+	</script>
 </body>
 </html>

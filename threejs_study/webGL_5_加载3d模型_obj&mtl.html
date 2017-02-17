@@ -2,11 +2,10 @@
 <html> 
 <head> 
 	<meta charset="utf-8"> 
-	<title>webGL_运动</title>
+	<title>webGL_载入3d模型</title>
 	<meta name="description" content="网页描述" />
 	<meta name="Keywords" content="关键字" />
-	<script src="./canvas_book.js"></script>
-	<script src="./three.min.js"></script>
+
 </head>
 	<style>
 		*{
@@ -26,6 +25,11 @@
 <body>
 	<div id="stage"></div>
 
+	<script src="./canvas_book.js"></script>
+	<script src="./three.min.js"></script>
+	<script src="DDSLoader.js"></script>
+	<script src="OBJLoader.js"></script>
+	<script src="MTLLoader.js"></script>
 	<script>
 		var oStage = document.querySelector('#stage');
 		var stageW = oStage.offsetWidth;
@@ -75,14 +79,14 @@
 				this.render.preserveDrawingBuffer = true,
 				this.render.setSize(this.w, this.h)
 				this.stage.appendChild(this.render.domElement)
-				this.render.setClearColor(0xffffff, 1)
+				this.render.setClearColor(0x000000, 1)
 			},
 			initCamera: function(){
 				this.camera = new THREE.PerspectiveCamera(45, this.w/this.h, 1, 10000);
 				//设置相机位置
 				this.camera.position.x = 0;
 				this.camera.position.y = 0;
-				this.camera.position.z = 800;
+				this.camera.position.z = 500;
 				//设置相机方向
 				this.camera.up.x = 0;
 				this.camera.up.y = 1;
@@ -99,14 +103,18 @@
 			},
 			initLights: function(){
 				//环境光  加上环境光会使整体变亮
-//				this.lights = new THREE.AmbientLight( 0xffff00 );
+//				this.lights = new THREE.AmbientLight( 0x00ff00 );
 //				this.lights.position.set(100, 100, 100);
 //				this.scene.add(this.lights);
-				//平行光源
-				this.lights = new THREE.PointLight(0xffffff);
-				//光源向量
-				this.lights.position.set( 0, 0, 500 );
-				//将光源添加到场景
+
+				//点光源
+//				this.lights = new THREE.PointLight(0xff0000);
+//				this.lights.position.set( 0, 0, 300 );
+//				this.scene.add(this.lights);
+
+				//方向光源
+				this.lights = new THREE.DirectionalLight(0xffffff);
+				this.lights.position.set( 0, 0, 1 );
 				this.scene.add(this.lights);
 			},
 			initObj: function(){
@@ -125,34 +133,40 @@
 		};
 
 		var webgl = new Webgl(oStage, stageW, stageH);
+		var onProgress = function ( xhr ) {
+			if ( xhr.lengthComputable ) {
+				var percentComplete = xhr.loaded / xhr.total * 100;
+				console.log( Math.round(percentComplete, 2) + '% downloaded' );
+			}
+		};
+		var onError = function ( xhr ) { };
 
-		var obj1 = new THREE.Mesh(
-				new THREE.CylinderGeometry(100, 100, 300, 10),
-				new THREE.MeshLambertMaterial({color: 0x00ff00})
-		);
-		obj1.position.set(0,0,0)
+		THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 
-		var obj2 = new THREE.Mesh(
-				new THREE.BoxGeometry(300, 100, 300),
-				new THREE.MeshLambertMaterial({color: 0xff0000})
-		);
-		obj2.position.set(0,200,0)
-
-		webgl.aObj.push(obj1);
-		webgl.aObj.push(obj2);
-		webgl.start();
+		var mtlLoader = new THREE.MTLLoader();
+		mtlLoader.setPath( 'male02/' );
+		mtlLoader.load( 'male02_dds.mtl', function( materials ) {
+			materials.preload();
+			var objLoader = new THREE.OBJLoader();
+			objLoader.setMaterials( materials );
+			objLoader.setPath( 'male02/' );
+			objLoader.load( 'male02.obj', function ( object ) {
+				object.position.y = - 95;
+				object.scale.multiplyScalar(1)
+				webgl.aObj.push( object );
+				webgl.start();
+				timer = requestAnimationFrame(animate);
+			}, onProgress, onError );
+		});
 
 		var n = 0;
 		function animate(){
-			n+=1/60;
-
+			n=60/60;
 			webgl.render.render(webgl.scene, webgl.camera);
-
 			timer = requestAnimationFrame(animate);
-
 			for(var i=0; i<webgl.aObj.length; i++){
 				webgl.aObj[i].position.x += n;
-
+				//webgl.aObj[i].rotateX(degToRad(n%360));
 				if(webgl.aObj[i].position.x>=stageW/2){
 					webgl.aObj[i].position.x = stageW/2;
 					cancelAnimationFrame(timer)
@@ -160,12 +174,12 @@
 				}
 			}
 		}
-//		setTimeout(function(){
-//			cancelAnimationFrame(timer)
-//		}, 2000)
+		setTimeout(function(){
+			cancelAnimationFrame(timer)
+		}, 5000)
 
 
-		timer = requestAnimationFrame(animate);
+
 	</script>
 </body>
 </html>
