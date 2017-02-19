@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+	<title>抓元宵小游戏</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html, body{
+			height: 100%;
+			overflow:hidden;
+		}
+
+		#loading{
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0, 0.8);
+			color: #fff;
+			text-align: center;
+			line-height: 200px;
+			font-size: 24px;
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+		.game_bg{
+			width: 100%;
+			height: 100%;
+			background-size: 100% auto;
+			background-position: top;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.game_bg_bottom{
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		canvas{
+			position: relative;
+			z-index: 10;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<div class="game_bg">
+		<img class="game_bg_bottom">
+	</div>
+	<div id="loading">资源加载中。。。</div>
+
+	<script src="./common.js"></script>
+	<script src="./load.js"></script>
+	<script src="./yx.js"></script>
+
+	<script type="text/javascript">
+		var loadingBox = document.querySelector('#loading');
+		var canvas = document.querySelector('#canvas');
+		var oBg = document.querySelector('.game_bg');
+		var oBgBottom = document.querySelector('.game_bg_bottom');
+		var winH = window.innerHeight;
+		var winW = window.innerWidth;
+
+		var ctx = canvas.getContext('2d');
+
+		//设置canvas尺寸
+		setView(canvas);
+
+		var w = canvas.width;
+		var h = canvas.height;
+		//背景图像数据
+		var surface = null;
+		//元宵的数组
+		var aYx = [];
+		//被抓住的元宵数组
+		var aYxGrasp = [];
+		//被抓住元宵的个数
+		var aYxGraspNum = 0;
+		//游戏帧数率
+		var fps = 0;
+		var lastTime = 0;
+		//每次添加元宵的个数；
+		var addNum = 1;
+		//元宵的速度
+		var YxV = 4;
+		//添加元宵
+		var addYxTimer = null;
+		//添加元宵的时间间隔；
+		var addDisTime = 1200;
+		//加速
+		var addVTimer = null;
+		//游戏动画循环；
+		var timer;
+		//游戏得分
+		var Mark = 0;
+		//游戏总时间  单位s
+		var totalTime = 30;
+		//游戏当前的剩余时间
+		var curTime = 0;
+		//X, Y, 缩放倍数
+		var canvasScaleX = (canvas.width/winW).toFixed(5);
+		var canvasScaleY = (canvas.height/winH).toFixed(5);
+
+		//加载状态
+		var status = 'loading';
+
+		//图片资源
+		var Resources = {
+			bg: 'bg1.jpg',
+			bottom_bg: 'bg2.png',
+			yx: 'yx.png',
+			yxdie: 'yxdie.png'
+		};
+
+		load(Resources, function(progress){
+
+			loadingBox.innerHTML = '资源加载中。。。'+progress+'%';
+
+		}, function(res){
+			console.log(res)
+			status = 'end';
+
+			loadingBox.style.display = 'none';	
+			oBg.style.backgroundImage = "url(./images/"+ Resources.bg +")";
+			oBgBottom.src = "./images/"+ Resources.bottom_bg;
+
+			//画背景
+			// ctx.drawImage(res.bg, 0,0, w, 1600);
+			// ctx.drawImage(res.bottom_bg, 0, h*0.776, w, 230)
+			// surface = ctx.getImageData(0,0, w, h)
+
+
+			//添加元宵
+			addYx()
+			function addYx(){
+				;(function(){
+					clearInterval(addYxTimer)
+					addYxTimer = setInterval(function(){
+						for(var i=0; i<addNum; i++){
+							var x = w+115;
+							var y = rnd(242, 600);
+							var vec = vector2d(-200, 0);
+							vec.normalize()
+							vec.scale(YxV)
+							var oYx = new Yx({
+								x: x,
+								y: y,
+								vec: vec,
+								img: res.yx,
+							})
+							aYx.push(oYx)
+							//clearInterval(addYxTimer)
+						}
+					}, addDisTime)
+				})()
+			}
+
+			//加速
+			;(function(){
+				addVTimer = setInterval(function(){
+					YxV ++;
+					addDisTime -= 280;
+					addYx()
+					if(YxV >= 7){
+						clearInterval(addVTimer)
+					}
+				}, 5000)
+			})()
+
+			var downX, downY, disX, disY;
+
+			//抓元宵
+			canvas.removeEventListener('touchstart', touchStart, false)
+			canvas.addEventListener('touchstart', touchStart, false)
+
+			function touchStart(ev){
+				//console.log(ev)
+				var bbox = windowToCanvas(canvas, ev.touches[0].clientX, ev.touches[0].clientY);
+				//console.log(bbox)
+				downX = bbox.x*canvasScaleX;
+				downY = bbox.y*canvasScaleY;
+
+				for(var i=0; i<aYx.length; i++){
+					if( aYx[i] != null && downInYx(downX, downY, aYx[i]) && aYx[i].status == 'life'){
+						//console.log(aYx[i].status)
+						disX = downX - aYx[i].x;
+						disY = downY - aYx[i].y;
+						//console.log(downX, downY)
+						curYxIndex = i;
+						aYx[i].status = 'down';
+						aYxGrasp.unshift(aYx.splice(i, 1, null)[0])
+						i--;
+						console.log(aYxGrasp)
+						//alert(i)
+
+						canvas.addEventListener('touchmove', touchmove, false)
+						canvas.addEventListener('touchend', touchup, false)
+
+						break;
+					}
+				}
+				// cancelAnimationFrame(timer)
+				// clearInterval(addVTimer)
+				ev.preventDefault();
+			}
+			function touchmove(ev){
+				var bbox = windowToCanvas(canvas, ev.touches[0].clientX, ev.touches[0].clientY);
+				//console.log(bbox)
+				var moveX = bbox.x*canvasScaleX;
+				var moveY = bbox.y*canvasScaleY;
+
+				aYxGrasp[0].x = moveX - disX;
+				aYxGrasp[0].y = moveY - disY;
+			}
+
+			function touchup(){
+				var vec = vector2d(0, -200);//.normalize().scale(10);
+				vec.normalize();
+				vec.scale(1);
+
+				aYxGrasp[0].status = 'up';
+				aYxGrasp[0].text = '+10';
+				aYxGrasp[0].clearText();
+				aYxGrasp[0].textVec = vec;
+				aYxGrasp[0].textX = aYxGrasp[0].x+(aYxGrasp[0].w/canvasScaleY)/2;
+				aYxGrasp[0].textY = aYxGrasp[0].y;
+				//console.log(aYxGrasp[0].textVec)
+
+				//如果元宵没有拖动到指定范围，算无效
+				if(aYxGrasp[0].y < window.innerHeight*0.8*canvasScaleY){
+					//aYxGrasp[0].y = window.innerHeight*0.8*canvasScaleY;
+					//
+					aYxGrasp.splice(0,1)
+				}else{
+					Mark+=10;
+					aYxGraspNum++;
+				}
+
+				canvas.removeEventListener('touchmove', touchmove, false)
+				canvas.removeEventListener('touchend', touchup, false)
+			}
+
+			//游戏动画
+			var initNum = 0;
+			function animate(now){
+
+				//更新每秒帧数率
+				if(!now){
+					now = +new Date;
+				}
+				fps = calculateFps(now);
+				//console.log(aYx)
+				//ctx.putImageData(surface, 0, 0)
+				ctx.clearRect(0,0, w, h)
+
+				//奔跑的元宵
+				for(var i=0; i<aYx.length; i++){
+					if(aYx[i] == null){
+						continue;
+						i--;
+					}else{
+						aYx[i].x+=aYx[i].vec.vx;
+		
+						aYx[i].draw(ctx)
+						//元宵到了死亡线
+						if(aYx[i].x<=60){
+							aYx[i].img = res.yxdie;
+							aYx[i].status = 'die';
+						}
+						//元宵被抓了
+						if(aYx[i].status == 'die' && aYx[i].x<=-160){
+							aYx.splice(i, 1)
+							i--;
+						}
+					}
+				}
+
+				//被抓住的元宵
+				//aYxGrasp[0] && aYxGrasp[0].draw(ctx)
+				for(var i=0; i<aYxGrasp.length; i++){
+					if(!!aYxGrasp[i].text){
+						aYxGrasp[i].textY+=aYxGrasp[i].textVec.vy;
+					}
+					aYxGrasp[i].draw(ctx);
+				}
+
+				//计算剩余时间
+				initNum+=1/fps;
+				curTime = totalTime - Math.floor(initNum);
+
+				//显示得分 ，游戏剩余时间
+				showMark(ctx, Mark, curTime)
+
+				timer = requestAnimationFrame(animate);
+
+				//如果剩余时间为0  停止游戏
+				if(curTime<=0){
+					curTime = 0;
+
+					ctx.save();
+					ctx.fillStyle = "#ff0";
+					ctx.font = 36*ctx.canvas.width/winW+'px aaa';
+					ctx.textAlign = 'center';
+					ctx.textBaseLine = 'middle';
+					ctx.fillText('恭喜您得到'+Mark+'分', (winW/2)*canvasScaleX, winH*0.5*canvasScaleY)
+					ctx.font = 20*ctx.canvas.width/winW+'px aaa';
+					ctx.fillText('重玩请刷新浏览器！', (winW/2)*canvasScaleX, winH*0.55*canvasScaleY)
+					ctx.restore()
+					cancelAnimationFrame(timer)
+				}
+			}
+
+			if(status != 'loading'){
+				timer = requestAnimationFrame(animate);
+			}
+			//计算帧数率
+			function calculateFps(now) {
+			    var fps = 1000 / (now - lastTime);
+			    lastTime = now;
+			    return fps; 
+			}
+
+			//检测touchstart的坐标是否在元宵上
+			function downInYx(x, y, oYx){
+
+				if(x<oYx.x || x>(oYx.x+oYx.w) || y<oYx.y || y>(oYx.y+oYx.h)){
+					//没有点中元宵
+					return false
+				}else{
+					//点中元宵
+					return true
+				}
+			}
+
+			//显示得分
+			function showMark(ctx, mark, curTime){
+				ctx.save();
+				ctx.fillStyle = "#fff";
+				ctx.font = 24*ctx.canvas.width/winW+'px aaa';
+				ctx.textAlign = 'center';
+				ctx.textBaseLine = 'middle';
+				ctx.fillText('得分：'+mark, (winW/2)*canvasScaleX, winH*0.2)
+				ctx.fillText('游戏剩余时间：'+curTime, (winW/2)*canvasScaleX, winH*0.3)
+				ctx.restore()
+			}
+
+		})		
+	</script>
+</body>
+</html>
