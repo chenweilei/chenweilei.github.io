@@ -1,0 +1,164 @@
+﻿邮箱地址：http://mail.yztctech.com/
+育知同创邮箱：chenweilei@yztctech.com
+邮箱密码：Ch123456
+
+正式上线环境
+\\120.92.18.176\www.yztcedu.com
+用户名：chenweilei
+密码：chenweilei123!@#
+
+测试环境：\\10.0.88.88\www.yztcedu.com
+用户名：chenweilei
+密码：chenweilei123!@#
+测试地址：http://10.0.88.88:8081/
+
+sftp:
+端口号：21345
+
+帝国账号：chenweilei
+密码：121212
+认证码：admin
+
+cnzz  查看密码   yzedu123
+
+svn
+用户名：chenweilei
+密码：chenweilei123!@#
+
+
+院校管理系统svn
+svn://120.24.18.96:9250/college.yztctech.com
+
+
+企业合作部
+知帮 git服务器地址
+http://git.yztctech.com/
+账号: chenweilei
+密码: 123123
+
+
+测试环境
+pc  http://www-test.yztcedu.com/
+
+移动：http://test-m.yztcedu.com/
+
+
+
+内网论坛：路径：/www/web/bbs.yztcedu.com
+          访问地址http://10.0.88.88:8083
+
+	http://bbs.yztcedu.com/forum.php
+
+1 ssh（ftp）: 
+Port:21345
+IP:10.0.88.88
+User:liwuke
+Password:liwuke123!@#
+
+Cocoa 2016/9/2 16:39:01
+后台地址http://10.0.88.88:8083/admin.php  账号：育知管理员  密码0a0b0c0d0e
+
+
+
+
+进击的玉兔
+http://mp.yztcedu.com/Mp/Game/jinjideyutu.html
+
+svn://120.92.9.15:9250/mp.yztcedu.com
+
+企业合作 svn
+svn://120.92.9.15:9250/qyhz.yztcedu.com
+企业用户_页面地址： http://qyhz.yztcedu.com/Enterprise/Enterprise/index.html
+英才用户_页面地址： http://qyhz.yztcedu.com/Excellence/Excellence/index.html
+
+知帮 企业职位发布增加工作性质 全职，兼职，实习
+
+
+chenweilei
+chenweilei123!@#
+
+
+browser-sync start --server --files "**/*.css, **/*.html"
+
+
+元素周期表
+http://www.yztcedu.com/h5demo/3dperiodictable/
+3d图片环
+http://www.yztcedu.com/h5demo/3dpicring/
+3d照片墙
+http://www.yztcedu.com/h5demo/3dpicwall/
+3d室内立体空间旋转效果展示
+http://www.yztcedu.com/h5demo/3drotate/
+垂直手风琴
+http://www.yztcedu.com/h5demo/chat/
+3d图片翻转
+http://www.yztcedu.com/h5demo/css3flip/
+
+
+itpt
+后台地址: http://www.itpt.com.cn/e/yztcadmin
+用户:itpt
+密码: 121212
+验证码：yztcedu
+
+服务器IP：120.24.18.96
+sshUser: chenweilei
+sshPassword:chenweilei123!@#
+sshPort:21345
+
+http://itpt.yztctech.com/e/yztcadmin/
+
+
+工行活动
+http://icbc.uliveapp.com/
+
+cctv13节目预告
+http://cctv13.uliveapp.com/
+
+
+//git 命令
+
+//拉取 远程指定分支 到 本地指定分支
+git pull origin branch_name:branch_name
+
+//将更新 推送 到 指定的远程分支
+git push origin branch_name
+
+//新建分支
+git branch branch_name
+
+//切换分支
+git checkout branch_name
+
+//新建并切换分支
+git checkout -b branch_name
+
+//合并 指定分支 到 当前分支
+git merge branch_name
+
+//删除指定分支
+git branch -d branch_name
+
+//查看远程分支
+git branch -r
+
+//查看本地分支
+git branch
+
+
+
+
+//-------------------------------- 分割线 ----------------------------------
+千峰一些账号：
+
+邮箱
+邮箱地址：http://mail.1000phone.com
+账号：chenweilei@1000phone.com
+密码：chenweilei123!@#
+
+oa后台
+页面地址：http://oa.1000phone.net
+账号密码同邮箱账号密码
+
+
+
