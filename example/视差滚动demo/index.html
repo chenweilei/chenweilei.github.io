@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>视差滚动demo</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			background: #000;
+		}
+		.warp{
+			width: 563px;
+			margin: 0 auto;
+			background: #fff;
+		}
+		.warp>div{
+			height: 1000px;
+			position: relative;
+		}
+		.warp>div h1{
+			position: relative;
+			z-index: 2;
+		}
+		.bg{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			clip: rect(0, auto, auto, 0);
+			clip-path: inset(0 0 0 0);
+			background-attachment: fixed;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position-x: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="warp">
+		<div class="col1">
+			<h1>标题1</h1>
+			<div class="bg" style="background-image: url(./img/1.png);"></div>
+		</div>
+		<div class="col1">
+			<h1>标题2</h1>
+			<div class="bg" style="background-image: url(./img/2.png);"></div>
+		</div>
+		<p>
+			测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字
+		</p>
+		<div class="col1">
+			<h1>标题3</h1>
+			<div class="bg" style="background-image: url(./img/3.png);"></div>
+		</div>
+		<div class="col1">
+			<h1>标题4</h1>
+			<div class="bg" style="background-image: url(./img/4.png);"></div>
+		</div>
+	</div>
+
+	<script>
+		window.onload = function(){
+			var aBg = document.querySelectorAll('.bg');
+			var a;
+
+			resize()
+			window.onresize = function(){
+				resize()
+			}
+
+			function resize(){
+				a = 563*100/window.innerWidth;
+
+				for(var i=0; i<aBg.length; i++){
+					aBg[i].style.backgroundSize = a+'% auto';
+				}
+			}
+		}
+	</script>
+</body>
+</html>

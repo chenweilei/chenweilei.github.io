@@ -12,6 +12,9 @@
 密码：chenweilei123!@#
 测试地址：http://10.0.88.88:8081/
 
+育知移动端 svn
+svn://120.92.18.176:9250/m.yztcedu.com
+
 sftp:
 端口号：21345
 
@@ -161,4 +164,8 @@ oa后台
 账号密码同邮箱账号密码
 
 
-
+千峰官网  帝国后台
+http://www.mobiletrain.org/e/admin/admin.php
+账号：chenweilei
+密码：chenweilei
+认证码：ning
