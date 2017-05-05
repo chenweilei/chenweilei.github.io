@@ -100,8 +100,8 @@ http://www.yztcedu.com/h5demo/css3flip/
 
 itpt
 后台地址: http://www.itpt.com.cn/e/yztcadmin
-用户:itpt
-密码: 121212
+用户:weilei
+密码: 123789
 验证码：yztcedu
 
 服务器IP：120.24.18.96
