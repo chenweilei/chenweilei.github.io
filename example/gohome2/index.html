@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<title>春节大作战</title>
+	<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+	
+	<div class="loading flex-center-xy flex">
+		<div>
+			<img src="./images/loading.png" alt="">
+			<p id="loading-txt">0%</p>
+		</div>
+		<img src="./images/game_cover_bottom.png" alt="">
+	</div>
+
+	<div class="share">
+		<img src="./images/share.png" alt="">
+	</div>
+
+	<audio src="./bgm.mp3" id="mp3" _preload="" loop="" style="position: absolute; top: 0; left: 0; opacity: 0;"></audio>
+	<audio src="./endbgm.mp3" id="endbgm" _preload="" loop="false" style="position: absolute; top: 0; left: 0; opacity: 0;"></audio>
+
+	<div class="p1 flex-center-xy">
+		<div class="p1-img1 tada infinite animated"><img  src="./images/game_cover_title.png?123" alt=""></div>
+		<span class="p1-music pause"></span>
+		<div class="p1-img2"><img src="./images/ME.png" alt=""></div>
+		<a class="p1-btn1" href="javascript:;"><img src="./images/p1-btn1.png" alt=""></a>
+		<div><img class="p1-img3" src="./images/game_cover_bottom.png?123" alt=""></div>
+	</div>
+
+
+	<div class="p2">
+		<span class="time">0</span>
+		<span class="p2-music pause"></span>
+		<canvas id="canvas"></canvas>
+		<img class="p2-img1 animated infinite flash" src="./images/game_ing_guide.png" alt="">
+	</div>
+
+
+	<div class="p3">
+		<div class="flexY-center-x">
+			<img class="p3-img1" src="./images/game_result_logo.png?123" alt="">
+			<div class="flexX-center-x p3-grade">
+				<img src="./images/game_result_0_1.png" alt="">
+				<span class="p3-time">0.2</span>
+				<img src="./images/game_result_0_2.png" alt="">
+			</div>
+			<div class="p3-resimg">
+				<img class="active" src="./images/game_result_1.png" alt="">
+				<img src="./images/game_result_2.png" alt="">
+				<img src="./images/game_result_3.png" alt="">
+				<img src="./images/game_result_4.png" alt="">
+				<img src="./images/game_result_5.png" alt="">
+				<img src="./images/game_result_6.png" alt="">
+			</div>
+			<div class="p3-qrcode"><img src="./images/result_qrcode.png" alt=""></div>
+			<div class="p3-btns">
+				<a href="javascript:;" class="restart"><img src="./images/game_result_button_again.png" alt=""></a>
+				<a href="javascript:;" class="sharebtn"><img src="./images/game_result_button_share.png" alt=""></a>
+			</div>
+			<div class="p3-tips-scroll animated bounce infinite"><img src="./images/result_arrow.png" alt=""></div>
+			<p class="p3-txt">
+				过年面对亲戚的“关心”<br>
+				你当然可以躲着走<br>
+				你也可以找我们聊聊
+			</p>
+			<div class="p3-btn2"><a href="https://www.jiandanxinli.com/learns/3?utm_source=weixin&utm_medium=h5&utm_campaign=cjdzz&utm_term=20180207"><img src="./images/p3-btn1.png" alt=""></a></div>
+			<div class="p3-btn3"><a href="http://www.jiandanxinli.com/learns?utm_source=weixin&utm_medium=h5&utm_campaign=cjdzz&utm_term=20180207"><img src="./images/p3-btn2.png" alt=""></a></div>
+			<div class="p3-btn5"><a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MzA0MzczMg==&scene=124#wechat_redirect"><img src="./images/game_result_ad4.png" alt=""></a></div>
+		</div>
+	</div>
+	<!-- <script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script> -->
+	<script src="./js/zepto.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+
+	<script type="text/javascript">
+		wx.config({
+		    debug: true, 
+		    appId: '', 
+		    timestamp: '',
+		    nonceStr: '', 
+		    signature: '',
+		    jsApiList: [] 
+		});
+
+		window.pageObj = {
+	        shareData: {
+	        	title: window.shareTitle, // 分享标题
+	            desc: window.shareDesc, // 分享描述
+	            link: '',// 分享链接
+	            imgUrl: './images/game_cover_title.png', // 分享图标
+	            success: function () {
+
+	            },
+	            cancel: function () {}
+		        }
+		 }
+		wx.ready(function(){
+			wx.onMenuShareTimeline(window.pageObj.shareData);
+			wx.onMenuShareAppMessage(window.pageObj.shareData);
+			wx.onMenuShareQQ(window.pageObj.shareData);
+			wx.onMenuShareWeibo(window.pageObj.shareData);
+		});
+	</script>
+
+	<script src="./js/index2.js"></script>
+
+
+</body>
+</html>

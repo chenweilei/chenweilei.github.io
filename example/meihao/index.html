@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0">
+	    <meta content="yes" name="apple-mobile-web-app-capable">
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	    <meta content="telephone=no" name="format-detection">
+		<title>美好记忆方块</title>
+
+		<link rel="stylesheet" href="./css/index.css">
+	</head>
+	<body>
+		<audio src="./1.mp3" id="mp3" preload="" loop="" style="position: absolute; top: 0; left: 0; opacity: 0;"></audio>
+		<!-- 第一屏 h5开始界面 -->
+		<div class="p1 flex-center-xy active">
+			<img src="./images/logo.jpg" alt="">
+			<img src="./images/p1-tit.jpg" alt="">
+			<a href="javascript:;" class="game-rule"><img src="./images/p1-btn1.jpg" alt=""></a>
+			<a href="javascript:;" class="start"><img src="./images/p1-btn2.jpg" alt=""></a>
+		</div>
+
+		<!-- 第二屏 游戏规则 -->
+		<div class="p2 flex-center-xy">
+			<img src="./images/p2-tit.jpg" alt="">
+			<img src="./images/p2-cont.jpg" alt="">
+			<a href="javascript:;" class="go-home"><img src="./images/p2-btn1.jpg" alt=""></a>
+		</div>
+
+		<!-- 第三屏 游戏界面 -->
+		<div class="p3 flex-center-xy">
+			<div class="p3-btn clearfix">
+				<a href="javascript:;" class="fl misic-pause"><img src="./images/parse-btn.png" alt=""></a>
+				<a href="javascript:;" class="fr misic-play"><img src="./images/play-btn.png" alt=""></a>
+			</div>
+			<div class="game-pass clearfix">
+				<p class="fl">
+					<img src="./images/p3-text1.png" alt="">
+					<span class="count">1</span>
+					<img src="./images/p3-text2.png" alt="">
+					<span class="total-count">15</span>
+					<img src="./images/p3-text3.png" alt="">
+				</p>
+				<span class="fr grade">0</span>
+			</div>
+			<div class="stage-box">
+				<div class="stage clearfix box4">
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+				</div>
+				<div class="stage clearfix box9">
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+				</div>
+				<div class="stage clearfix box16">
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+					<div class="box fl">
+						<div class="box_back"></div>
+						<div class="box_front"></div>
+					</div>
+				</div>
+				<div class="time">3</div>
+			</div>
+		</div>
+		
+		<!-- 第四屏 游戏结束界面-->
+		<div class="p4 flex-center-xy">
+			<img src="./images/p1-tit.jpg" alt="">
+			<a href="javascript:;"><img src="./images/p4-btn1.png" alt="" class="prize"></a>
+			<a href="javascript:;" class="go-home2"><img src="./images/p2-btn1.jpg" alt=""></a>
+		</div>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script type="text/javascript">
+			wx.config({
+			    debug: true, 
+			    appId: '', 
+			    timestamp: '',
+			    nonceStr: '', 
+			    signature: '',
+			    jsApiList: [] 
+			});
+
+			window.pageObj = {
+		        shareData: {
+		        	title: '', // 分享标题
+		            desc: '', // 分享描述
+		            link: '',// 分享链接
+		            imgUrl: 'http://static.huchill.com/shareImg/AnnieLogo_188_188.png', // 分享图标
+		            success: function () {
+		            	window.isCanInfinity = true;
+		            	window.localStorage.setItem('isCanInfinity','1');
+		            },
+		            cancel: function () {}
+			        }
+			 }
+			wx.ready(function(){
+				wx.onMenuShareTimeline(window.pageObj.shareData);
+				wx.onMenuShareAppMessage(window.pageObj.shareData);
+				wx.onMenuShareQQ(window.pageObj.shareData);
+				wx.onMenuShareWeibo(window.pageObj.shareData);
+			});
+		</script>
+		<script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
+		<script src="./js/index.js?1234"></script>
+
+	</body>
+</html>

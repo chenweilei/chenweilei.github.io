@@ -1,0 +1,325 @@
+@charset "UTF-8"
+
+@function v($n)
+	@return $n/6.4*1vw
+
+
+* 
+	padding: 0
+	margin: 0 
+
+body 
+	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif 
+
+img 
+	vertical-align: top
+	border: none 
+
+/*弹性盒子 */
+.flex 
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex 
+
+/*子集垂直水平居中 */
+.flex-center-xy 
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	-webkit-flex-direction: column
+	-moz-flex-direction: column
+	-ms-flex-direction: column
+	-o-flex-direction: column
+	flex-direction: column
+	-webkit-justify-content: center
+	-moz-justify-content: center
+	-ms-justify-content: center
+	-o-justify-content: center
+	justify-content: center
+	-webkit-align-items: center
+	-moz-align-items: center
+	-ms-align-items: center
+	align-items: center 
+
+.flex-center-x 
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	-webkit-justify-content: center
+	-moz-justify-content: center
+	-ms-justify-content: center
+	-o-justify-content: center
+	justify-content: center
+	-webkit-align-items: center
+	-moz-align-items: center
+	-ms-align-items: center
+	align-items: center 
+
+html, body 
+	width: 100%
+	height: 100%
+	overflow: hidden 
+
+.warp 
+	height: 100% 
+
+
+.fl
+	float: left
+
+.fr
+	float: right
+
+.clearfix:after
+	content: ""
+	display: block
+	clear: both
+
+html,body
+	width: 100%
+	height: 100%
+	overflow: hidden
+
+body
+	position: relative
+	>div.active
+		opacity: 1
+		transform: translateX(0)
+		-webkit-transform: translateX(0)
+		-moz-transform: translateX(0)
+		-ms-transform: translateX(0)
+	>div
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		transition: .8s all ease
+		-webkit-transition: .8s all ease
+		-moz-transition: .8s all ease
+		-ms-transition: .8s all ease
+		opacity: 0
+		transform: translateX(-v(640))
+		-webkit-transform: translateX(v(-640))
+		-moz-transform: translateX(v(-640))
+		-ms-transform: translateX(v(-640))
+		background-color: #fff
+		background-repeat: no-repeat
+		background-position: bottom
+		background-size: 100% auto
+
+.p1
+	background-image: url(../images/bottom.jpg)
+	>img:nth-child(1)
+		width: v(209)
+		margin-bottom: v(57)
+	>img:nth-child(2)
+		width: v(564)
+		margin-bottom: v(85)
+	>a:nth-child(3)
+		display: block
+		width: v(235)
+		margin-bottom: v(56)
+		>img
+			width: 100%
+	>a:nth-child(4)
+		display: block
+		width: v(235)
+		margin-bottom: v(200)
+		>img
+			width: 100%
+
+.p2
+	background-image: url(../images/p2-bottom.png)
+	>img:nth-child(1)
+		width: v(244)
+		margin-bottom: v(48)
+	>img:nth-child(2)
+		width: v(492)
+		margin-bottom: v(32)
+	>a:nth-child(3)
+		display: block
+		width: v(191)
+		margin-bottom: v(60)
+		>img
+			width: 100%
+
+.p3
+	background-image: url(../images/p3-bottom.png)
+	.p3-btn
+		width: v(575)
+		margin-bottom: v(34)
+		>a
+			width: v(48)
+			height: v(49)
+			img
+				width: 100%
+	.game-pass
+		width: v(575)
+		height: v(24)
+		margin-bottom: v(24)
+		>p
+			height: 100%
+			>img
+				height: 100%
+			>span
+				font-size: v(26)
+				line-height: v(24)
+				display: inline-block
+				font-weight: bolder
+				vertical-align: top
+			>img:nth-child(1)
+				margin-left: v(10)
+				margin-right: v(18)
+			>span:nth-child(2)
+				color: #55a16d
+			>img:nth-child(3)
+				margin: 0 v(16)
+			>span:nth-child(4)
+				color: #70b8df
+			>img:nth-child(5)
+				margin-left: v(40)
+		>span
+			display: inline-block
+			font-weight: bolder
+			font-size: v(26)
+			line-height: v(24)
+			color: #c43230
+	.stage-box
+		width: v(568)
+		height: v(698)
+		margin-bottom: v(100)
+		position: relative
+	.time
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		color: #c43230
+		font-weight: bloder
+		font-size: v(200)
+		text-align: center
+		line-height: v(698)
+	.stage
+		transform-style: preserve-3d
+		position: absolute
+		top: 0
+		left: 0
+		transition: .8s all ease
+		-webkit-transition: .8s all ease
+		-moz-transition: .8s all ease
+		-ms-transition: .8s all ease
+		transform: translateX(v(-640))
+		-webkit-transform: translateX(v(-640))
+		-moz-transform: translateX(v(-640))
+		-ms-transform: translateX(v(-640))
+		-webkit-transform-style: preserve-3d
+		-moz-transform-style: preserve-3d
+		-ms-transform-style: preserve-3d
+		.box.active
+			transform: perspective(800px) rotateY(-180deg)
+			-webkit-transform: perspective(800px) rotateY(-180deg)
+			-moz-transform: perspective(800px) rotateY(-180deg)
+			-ms-transform: perspective(800px) rotateY(-180deg)
+		.box.target
+			.box_front
+				background-repeat: no-repeat
+				background-size: 100% 100%
+				background-image: url(../images/p3-targetbox-bg.png)
+		.box
+			position: relative
+			top: 0
+			left: 0
+			box-sizing: border-box
+			-webkit-box-sizing: border-box
+			-moz-box-sizing: border-box
+			-ms-box-sizing: border-box
+			transition: 1s all ease
+			-webkit-transition: 1s all ease
+			-moz-transition: 1s all ease
+			-ms-transition: 1s all ease
+			transform: perspective(800px) rotateY(0deg)
+			-webkit-transform: perspective(800px) rotateY(0deg)
+			-moz-transform: perspective(800px) rotateY(0deg)
+			-ms-transform: perspective(800px) rotateY(0deg)
+			transform-style: preserve-3d
+			-webkit-transform-style: preserve-3d
+			-moz-transform-style: preserve-3d
+			-ms-transform-style: preserve-3d
+			>div
+				position: absolute
+				width: 100%
+				height: 100%
+				top: 0
+				left: 0
+			.box_back
+				z-index: 2
+				background: #f6ca61
+				backface-visibility: hidden
+				-webkit-backface-visibility: hidden
+				-moz-backface-visibility: hidden
+				-ms-backface-visibility: hidden
+			.box_front
+				z-index: 1
+				text-align: center
+				background-color: #ccc
+				transform: scaleX(-1)
+				-webkit-transform: scaleX(-1)
+				-moz-transform: scaleX(-1)
+				-ms-transform: scaleX(-1)
+	.cur
+		transform: translateX(0)
+		-webkit-transform: translateX(0)
+		-moz-transform: translateX(0)
+		-ms-transform: translateX(0)
+		opacity: 1
+	.box4
+		width: v(576)
+		>div
+			width: v(281)
+			height: v(341)
+			margin-right: v(7)
+			margin-bottom: v(8)
+	.box9
+		width: v(576)
+		>div
+			width: v(185)
+			height: v(224)
+			margin-right: v(7)
+			margin-bottom: v(8)	
+	.box16
+		width: v(576)
+		>div
+			width: v(137)
+			height: v(165)
+			margin-right: v(7)
+			margin-bottom: v(8)
+
+
+.p4
+	background-image: url(../images/p4-bottom.png)
+	>img:nth-child(1)
+		width: v(540)
+		margin-bottom: v(163)	
+	>a:nth-child(2)
+		display: block
+		width: v(250)
+		margin-bottom: v(48)
+		>img
+			width: 100%
+	>a:nth-child(3)
+		display: block
+		width: v(250)
+		>img
+			width: 100%
+
+
+
+
